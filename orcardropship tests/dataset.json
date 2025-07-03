@@ -1,0 +1,188 @@
+[
+  {
+    "nl-desc": "User registration form",
+    "file-path": "oscardropship/templates/oscar/customer/login_registration.html",
+    "lines": "1-20",
+    "code": "{% block registration_form %}\n<form method=\"post\" action=\"{% url 'customer:register' %}\">\n    {% csrf_token %}\n    {{ form.as_p }}\n    <button type=\"submit\">Register</button>\n</form>\n{% endblock %}"
+  },
+  {
+    "nl-desc": "Show discount message in cart",
+    "file-path": "oscardropship/templates/oscar/basket/messages/offer_gained.html",
+    "lines": "1-5",
+    "code": "<div class=\"alert alert-success\">\n  <strong>Congratulations!</strong> You've received a discount on your basket.\n</div>"
+  },
+  {
+    "nl-desc": "Payment methods definition (PayPal)",
+    "file-path": "oscardropship/custom_oscar/checkout/paypal_client.py",
+    "lines": "1-15",
+    "code": "import paypalrestsdk\n\npaypalrestsdk.configure({\n    \"mode\": \"sandbox\",\n    \"client_id\": \"YOUR_CLIENT_ID\",\n    \"client_secret\": \"YOUR_CLIENT_SECRET\"\n})\n\ndef create_payment():\n    # logic to create PayPal payment\n    pass"
+  },
+  {
+    "nl-desc": "UI dark mode toggle as in template support",
+    "file-path": "oscardropship/templates/oscar/partials/footer.html",
+    "lines": "30-40",
+    "code": "<script>\n  document.getElementById('dark-mode-toggle').addEventListener('click', function() {\n    document.body.classList.toggle('dark-mode');\n    localStorage.setItem('dark-mode', document.body.classList.contains('dark-mode'));\n  });\n</script>\n<button id=\"dark-mode-toggle\">Toggle Dark Mode</button>"
+  },
+  {
+    "nl-desc": "Newsletter subscription form",
+    "file-path": "oscardropship/templates/newsletter/message/subscribe.html",
+    "lines": "1-10",
+    "code": "<form method=\"post\" action=\"{% url 'newsletter:subscribe' %}\">\n  {% csrf_token %}\n  <input type=\"email\" name=\"email\" placeholder=\"Your email address\">\n  <button type=\"submit\">Subscribe</button>\n</form>"
+  },
+  {
+    "nl-desc": "Recently viewed products panel",
+    "file-path": "oscardropship/templates/oscar/customer/history/recently_viewed_products.html",
+    "lines": "1-10",
+    "code": "<h3>Recently Viewed</h3>\n<ul>\n  {% for product in products %}\n    <li>{{ product.title }}</li>\n  {% endfor %}\n</ul>"
+  },
+  {
+    "nl-desc": "User wishlist management",
+    "file-path": "oscardropship/templates/oscar/customer/wishlists/wishlists_list.html",
+    "lines": "1-10",
+    "code": "<h2>Your Wishlists</h2>\n<ul>\n  {% for wishlist in wishlists %}\n    <li>{{ wishlist.name }}</li>\n  {% endfor %}\n</ul>"
+  },
+  {
+    "nl-desc": "Show product reviews with stars",
+    "file-path": "oscardropship/templates/oscar/catalogue/reviews/partials/review_stars.html",
+    "lines": "1-6",
+    "code": "<div class=\"star-rating\">\n  {% for i in \"12345\" %}\n    <span class=\"star {% if i <= rating %}filled{% endif %}\"></span>\n  {% endfor %}\n</div>"
+  },
+  {
+    "nl-desc": "Product alert management UI (user cancels alerts)",
+    "file-path": "oscardropship/templates/oscar/customer/alerts/alert_list.html",
+    "lines": "8-40",
+    "code": "{% for alert in alerts %}\n<tr>\n  <td><a href=\"{{ alert.product.get_absolute_url }}\">{{ alert.product.get_title }}</a></td>\n  <td>{{ alert.status }}</td>\n  <td>{{ alert.date_created }}</td>\n  <td><a href=\"{% url 'customer:alerts-cancel-by-pk' pk=alert.pk %}\" class=\"btn btn-danger\">Cancel</a></td>\n</tr>\n{% endfor %}"
+  },
+  {
+    "nl-desc": "Display recently viewed products",
+    "file-path": "oscardropship/templates/oscar/customer/history/recently_viewed_products.html",
+    "lines": "5-15",
+    "code": "<h2>{% trans 'Products you recently viewed' %}</h2>\n<ul class=\"row\">\n  {% for product in products_sliced %}\n    <li class=\"col-xs-6 col-sm-4 col-md-3 col-lg-3\">{% render_product product %}</li>\n  {% endfor %}\n</ul>"
+  },
+  {
+    "nl-desc": "Promotional offer display on homepage",
+    "file-path": "oscardropship/templates/oscar/offer/list.html",
+    "lines": "15-35",
+    "code": "{% for offer in offers %}\n<h2>{{ offer.name }}</h2>\n<p>{{ offer.description|safe }}</p>\n<ul class=\"row\">\n  {% for product in offer.products|slice:\":12\" %}\n    <li class=\"col-xs-6 col-sm-4 col-md-3 col-lg-3\">{% render_product product %}</li>\n  {% endfor %}\n</ul>\n<a class=\"btn btn-default\" href=\"{% url 'offer:detail' slug=offer.slug %}\">Browse products in offer</a>\n<hr/>\n{% endfor %}"
+  },
+  {
+    "nl-desc": "Mini cart summary panel in top navigation",
+    "file-path": "oscardropship/templates/oscar/basket/partials/basket_quick.html",
+    "lines": "5-35",
+    "code": "<ul class=\"basket-mini-item\">\n{% for line in request.basket.all_lines %}\n  <li>\n    <a href=\"{{ line.product.get_absolute_url }}\">{{ line.description }}</a>\n    Qty: {{ line.quantity }} - {{ line.unit_price_excl_tax|currency:request.basket.currency }}\n  </li>\n{% endfor %}\n<a href=\"{% url 'checkout:index' %}\" class=\"btn btn-primary\">Checkout</a>\n</ul>"
+  },
+  {
+    "nl-desc": "Checkout login prompt the who are you page",
+    "file-path": "oscardropship/templates/oscar/checkout/gateway.html",
+    "lines": "15-40",
+    "code": "<form method=\"post\">\n  {% csrf_token %}\n  {{ form.non_field_errors }}\n  {{ form.username }}\n  <div class=\"form-group\">\n    {{ form.options.0 }}\n    {{ form.options.1 }}\n    {{ form.options.2 }}\n  </div>\n  <button type=\"submit\" class=\"btn btn-primary\">Continue</button>\n</form>"
+  },
+  {
+    "nl-desc": "Order total and surcharges display",
+    "file-path": "oscardropship/templates/oscar/order/partials/basket_totals.html",
+    "lines": "15-35",
+    "code": "<tr><td>{% trans \"Basket total (before discounts)\" %}</td>\n<td>{{ order.basket_total_before_discounts_incl_tax|currency:order.currency }}</td></tr>\n<tr><td><span class=\"label label-success\">Discount</span></td>\n<td>{{ discount.amount|currency:order.currency }}</td></tr>\n<tr><td>{% trans \"Order total\" %}</td>\n<td>{{ order.total_incl_tax|currency:order.currency }}</td></tr>"
+  },
+  {
+    "nl-desc": "Product review stars UI",
+    "file-path": "oscardropship/templates/oscar/catalogue/reviews/partials/review_stars.html",
+    "lines": "1-6",
+    "code": "<div class=\"star-rating\">\n  {% for i in \"12345\" %}\n    <span class=\"star {% if i <= rating %}filled{% endif %}\"></span>\n  {% endfor %}\n</div>"
+  },
+  {
+    "nl-desc": "Profile deletion warning",
+    "file-path": "oscardropship/templates/oscar/customer/profile/profile_delete.html",
+    "lines": "5-20",
+    "code": "<div class=\"alert alert-warning\">\n  <h3>{% trans \"Warning\" %}</h3>\n  <p>This will delete all information about you from the site. Deleting your profile cannot be undone.</p>\n</div>\n<button type=\"submit\" class=\"btn btn-danger\">Delete</button>\n<a href=\"{% url 'customer:profile-view' %}\">Cancel</a>"
+  },
+  {
+    "nl-desc": "Wishlist creation form",
+    "file-path": "oscardropship/templates/oscar/customer/wishlists/wishlists_form.html",
+    "lines": "20-40",
+    "code": "<form method=\"post\" data-behaviours=\"lock\">\n  {% csrf_token %}\n  <p>{% trans \"What should your new wish list be called?\" %}</p>\n  {% include \"oscar/partials/form_fields.html\" %}\n  <div class=\"form-group\">\n    <button class=\"btn btn-lg btn-primary\" type=\"submit\">{% trans \"Save\" %}</button>\n    {% trans \"or\" %} <a href=\"#\" onclick=\"history.go(-1);return false\">{% trans \"cancel\" %}</a>\n  </div>\n</form>"
+  },
+  {
+    "nl-desc": "Product gallery carousel",
+    "file-path": "oscardropship/templates/oscar/catalogue/partials/gallery.html",
+    "lines": "10-30",
+    "code": "<div id=\"product_gallery\" class=\"carousel slide\">\n  <div class=\"carousel-inner\" role=\"listbox\">\n    {% for image in all_images %}\n      <div class=\"item {% if forloop.first %}active{% endif %}>\n        <img src=\"{{ image.original.url }}\" alt=\"{{ product.get_title }}\" />\n      </div>\n    {% endfor %}\n  </div>\n</div>"
+  },
+  {
+    "nl-desc": "Header navigation with browse dropdown",
+    "file-path": "oscardropship/templates/uikit/partials/navbar.html",
+    "lines": "5-25",
+    "code": "<nav class=\"uk-visible@m uk-navbar-container\">\n  <ul id=\"browse\" class=\"nav navbar-nav\">\n    <li class=\"dropdown\">\n      <a href=\"#\" class=\"dropdown-toggle\">{% trans \"Browse store\" %} <b class=\"caret\"></b></a>\n      <ul class=\"dropdown-menu\">\n        <li><a href=\"{% url 'catalogue:index' %}\">{% trans \"All products\" %}</a></li>\n        {% for category in categories %}<li><a href=\"{{ category.get_absolute_url }}\">{{ category.name }}</a></li>{% endfor %}\n      </ul>\n    </li>\n  </ul>\n</nav>"
+  },
+  {
+    "nl-desc": "Add to basket form but compact version",
+    "file-path": "oscardropship/templates/oscar/catalogue/partials/add_to_basket_form_compact.html",
+    "lines": "10-20",
+    "code": "<form action=\"{% url 'basket:add' pk=product.pk %}\" method=\"post\">\n  {% csrf_token %}\n  {{ basket_form.as_p }}\n  <button type=\"submit\" class=\"btn btn-primary btn-block\">{% trans \"Add to basket\" %}</button>\n</form>"
+  },
+  {
+    "nl-desc": "Add to wishlist dropdown menu",
+    "file-path": "oscardropship/templates/oscar/catalogue/partials/add_to_wishlist.html",
+    "lines": "10-30",
+    "code": "<div class=\"btn-group btn-wishlist\">\n  <a class=\"btn btn-lg dropdown-toggle\" data-toggle=\"dropdown\">{% trans \"Add to wish list\" %} <span class=\"caret\"></span></a>\n  <ul class=\"dropdown-menu pull-right\">\n    {% for wishlist in wishlists %}\n      <li><a href=\"{% url 'customer:wishlists-add-product' key=wishlist.key product_pk=product.pk %}\">Add to '{{ wishlist.name }}'</a></li>\n    {% endfor %}\n    <li><a href=\"{% url 'customer:wishlists-create-with-product' product_pk=product.pk %}\">{% trans 'Create a new wishlist' %}</a></li>\n  </ul>\n</div>"
+  },
+  {
+    "nl-desc": "Payment step navigation (checkout progress bar)",
+    "file-path": "oscardropship/templates/oscar/checkout/nav.html",
+    "lines": "5-30",
+    "code": "<ul class=\"nav navbar-nav\">\n  <li class=\"step1 {% if step == 1 %}active{% endif %}>\n    <span class=\"navbar-text\">{% trans \"1. Shipping address\" %}</span>\n  </li>\n  <li class=\"step3 {% if step == 3 %}active{% endif %}>\n    <span class=\"navbar-text\">{% trans \"3. Payment\" %}</span>\n  </li>\n  <li class=\"step4 {% if step == 4 %}active{% endif %}>\n    <span class=\"navbar-text\">{% trans \"4. Preview\" %}</span>\n  </li>\n</ul>"
+  },
+  {
+    "nl-desc": "Homepage promotional banner with CTA",
+    "file-path": "oscardropship/wagtail_pages/blocks.py",
+    "lines": "5-20",
+    "code": "class BannerBlock(blocks.StructBlock):\n  title = blocks.CharBlock()\n  cta_text = blocks.CharBlock(required=False)\n  cta_href = blocks.CharBlock(default='#')\n  background_image = ImageChooserBlock(required=False)\n  class Meta:\n    template = 'uikit/wagtail/blocks/banner.html'"
+  },
+  {
+    "nl-desc": "Blog section on homepage",
+    "file-path": "oscardropship/templates/uikit/layout.html",
+    "lines": "5-25",
+    "code": "<section class=\"uk-text-center uk-article\">\n  <h2 class=\"uk-article-title\">LATEST FROM BLOG</h2>\n  <div class=\"uk-grid-match\" uk-grid>\n    {% for blog_post in latest_blog_posts %}\n      <div class=\"uk-inline\">\n        <a href=\"{{ blog_post.url }}\"><img src=\"{{ blog_post.header_image.url }}\" /></a>\n        <div class=\"uk-overlay\">{{ blog_post.title }}</div>\n      </div>\n    {% endfor %}\n  </div>\n</section>"
+  },
+  {
+    "nl-desc": "Order summary for guest user",
+    "file-path": "oscardropship/templates/oscar/customer/anon_order.html",
+    "lines": "10-30",
+    "code": "<h3>{% trans 'Shipping address' %}</h3>\n<table class=\"table table-striped\">\n  <tr><th>{% trans 'Address' %}</th>\n  <td>{{ order.shipping_address|linebreaks }}</td></tr>\n  <tr><th>{% trans 'Contact number' %}</th>\n  <td>{{ order.shipping_address.phone_number }}</td></tr>\n</table>"
+  },
+  {
+    "nl-desc": "Customer login + registration form",
+    "file-path": "oscardropship/templates/oscar/customer/login_registration.html",
+    "lines": "10-40",
+    "code": "<form id=\"login_form\" method=\"post\">\n  <h2>{% trans 'Log In' %}</h2>\n  {% csrf_token %}\n  {{ login_form.as_p }}\n  <button type=\"submit\" class=\"btn btn-lg btn-primary\">{% trans 'Log In' %}</button>\n</form>\n<form id=\"register_form\" method=\"post\">\n  <h2>{% trans 'Register' %}</h2>\n  {% csrf_token %}\n  {{ registration_form.as_p }}\n  <button type=\"submit\" class=\"btn btn-lg btn-primary\">{% trans 'Register' %}</button>\n</form>"
+  },
+  {
+    "nl-desc": "Create and authorize PayPal order using SDK client",
+    "file-path": "oscardropship/custom_oscar/checkout/paypal_client.py",
+    "lines": "45-70",
+    "code": "def create_order(self, debug=False):\n    request = OrdersCreateRequest()\n    request.prefer('return=representation')\n    request.request_body(build_request_body())\n    response = self.client.execute(request)\n    return response"
+  },
+  {
+    "nl-desc": "Capture payment details into order source during checkout",
+    "file-path": "oscardropship/custom_oscar/checkout/views.py",
+    "lines": "10-30",
+    "code": "def handle_payment(self, order_number, total, **kwargs):\n    source_type, _ = models.SourceType.objects.get_or_create(name='PayPal')\n    source = source_type.sources.model(\n        source_type=source_type,\n        amount_allocated=total.incl_tax,\n        currency=total.currency)\n    self.add_payment_source(source)\n    self.add_payment_event('Authorised', total.incl_tax)"
+  },
+  {
+    "nl-desc": "Build structured PayPal API request body for multiple items",
+    "file-path": "oscardropship/custom_oscar/checkout/paypal_client.py",
+    "lines": "15-40",
+    "code": "def build_request_body():\n    return {\n        \"intent\": \"CAPTURE\",\n        \"purchase_units\": [{\n            \"reference_id\": \"PUHF\",\n            \"amount\": {\n                \"currency_code\": \"USD\",\n                \"value\": \"230.00\",\n                \"breakdown\": {\n                    \"item_total\": {\"value\": \"180.00\"},\n                    \"shipping\": {\"value\": \"30.00\"},\n                    \"tax_total\": {\"value\": \"20.00\"},\n                    \"shipping_discount\": {\"value\": \"10\"}\n                }\n            },\n            \"items\": [{\"name\": \"T-Shirt\", \"value\": \"90.00\"}, {\"name\": \"Shoes\", \"value\": \"45.00\"}]\n        }]\n    }"
+  },
+  {
+    "nl-desc": "Convert complex nested PayPal response objects to JSON",
+    "file-path": "oscardropship/custom_oscar/checkout/paypal_client.py",
+    "lines": "60-90",
+    "code": "def object_to_json(self, json_data):\n    result = {}\n    for key, value in json_data.__dict__.items():\n        if key.startswith(\"__\"): continue\n        result[key] = self.array_to_json_array(value) if isinstance(value, list) else \\\n                      self.object_to_json(value) if not self.is_primittive(value) else value\n    return result"
+  },
+  {
+    "nl-desc": "Code snipped where we place order with PayPal and save form data in checkout view",
+    "file-path": "oscardropship/custom_oscar/checkout/views.py",
+    "lines": "1-20",
+    "code": "def do_place_order(self, request):\n    paypal_order_form = PaypalOrderModelForm(request.POST)\n    if not paypal_order_form.is_valid():\n        messages.error(request, \"Invalid submission\")\n        return HttpResponseRedirect(reverse('checkout:payment-details'))\n    else:\n        paypal_order_form.save()\n\n    submission = self.build_submission()\n    submission['payment_kwargs']['paypal_order'] = paypal_order_form.cleaned_data\n    return self.submit(**submission)"
+  }
+]
