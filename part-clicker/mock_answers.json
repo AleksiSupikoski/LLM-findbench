@@ -1,0 +1,150 @@
+[
+  {
+    "feature": "Game Initialization and Loop",
+    "ui_layer": [],
+    "presentation_logic": [
+      {
+        "name": "Wrong UI Init",
+        "file_path": "wrong/path.js",
+        "lines": ["10-20"],
+        "func_class_object": "WrongFunc"
+      }
+    ],
+    "business_logic": [],
+    "data_fetch_persistence": [],
+    "state_management": [],
+    "event_handling": [],
+    "validation": [],
+    "dependency_layer": []
+  },
+  {
+    "feature": "Achievement System",
+    "ui_layer": [
+      {
+        "name": "Render achievements modal UI",
+        "file_path": "index.html",
+        "lines": ["216-235"],
+        "func_class_object": "achievements-modal"
+      }
+    ],
+    "presentation_logic": [],
+    "business_logic": [
+      {
+        "name": "Achievement object initialization",
+        "file_path": "js/gameobjects.js",
+        "lines": ["235-238"],
+        "func_class_object": "Achievement"
+      }
+    ],
+    "data_fetch_persistence": [
+      {
+        "name": "Wrong Fetch",
+        "file_path": "wrong/file.js",
+        "lines": ["5-10"],
+        "func_class_object": null
+      }
+    ],
+    "state_management": [],
+    "event_handling": [],
+    "validation": [],
+    "dependency_layer": [
+      {
+        "name": "jQuery for DOM manipulation",
+        "file_path": "index.html",
+        "lines": ["302-302"],
+        "func_class_object": null
+      },
+      {
+        "name": "Extra Wrong Dep",
+        "file_path": "wrong/dep.js",
+        "lines": ["1-5"],
+        "func_class_object": "Dep"
+      }
+    ]
+  },
+  {
+    "feature": "Research System",
+    "ui_layer": [
+      {
+        "name": "Render research UI panel",
+        "file_path": "index.html",
+        "lines": ["74-100"],
+        "func_class_object": "research-panel"
+      }
+    ],
+    "presentation_logic": [
+      {
+        "name": "Research controller",
+        "file_path": "js/app.js",
+        "lines": ["50-70"],
+        "func_class_object": "ResearchController"
+      }
+    ],
+    "business_logic": [
+      {
+        "name": "Research object initialization",
+        "file_path": "js/gameobjects.js",
+        "lines": ["169-172"],
+        "func_class_object": "Research"
+      }
+    ],
+    "data_fetch_persistence": [
+      {
+        "name": "Research data definition",
+        "file_path": "json/research.json",
+        "lines": ["1-145"],
+        "func_class_object": "research array"
+      },
+      {
+        "name": "Load research data",
+        "file_path": "js/gameobjects.js",
+        "lines": ["169-172"],
+        "func_class_object": null
+      }
+    ],
+    "state_management": [
+      {
+        "name": "Update research state",
+        "file_path": "js/gameobjects.js",
+        "lines": ["169-172"],
+        "func_class_object": null
+      }
+    ],
+    "event_handling": [
+      {
+        "name": "Click events on research buttons",
+        "file_path": "index.html",
+        "lines": ["74-100"],
+        "func_class_object": null
+      }
+    ],
+    "validation": [
+      {
+        "name": "Validate sufficient data",
+        "file_path": "js/gameobjects.js",
+        "lines": null,
+        "func_class_object": "Research.prototype.research"
+      }
+    ],
+    "dependency_layer": [
+      {
+        "name": "Helpers.loadFile",
+        "file_path": "js/helpers.js",
+        "lines": ["8-18"],
+        "func_class_object": "loadFile"
+      },
+      {
+        "name": "Lab object",
+        "file_path": "js/gameobjects.js",
+        "lines": ["1-273"],
+        "func_class_object": "Lab"
+      },
+      {
+        "name": "AngularJS directives",
+        "file_path": "index.html",
+        "lines": ["303-303"],
+        "func_class_object": null
+      }
+    ]
+  }
+]

@@ -1,0 +1,1508 @@
+[
+  {
+    "feature": "Game Initialization and Loop",
+    "nl_desc": "Sets up the initial game state, loads game objects, and manages the continuous game loop for updates.",
+    "ui_layer": {
+      "name": null,
+      "subfeatures": []
+    },
+    "presentation_logic": {
+      "name": "AngularJS module and controller setup",
+      "subfeatures": [
+        {
+          "name": "Application setup and bootstrapping",
+          "file_path": "js/app.js",
+          "lines": [
+            "1-125"
+          ],
+          "func_class_object": "app.controller, app.filter"
+        }
+      ]
+    },
+    "business_logic": {
+      "name": "Game object and loop logic",
+      "subfeatures": [
+        {
+          "name": "Game object initialization",
+          "file_path": "js/gameobjects.js",
+          "lines": [
+            "1-273"
+          ],
+          "func_class_object": "GameObject, Lab, Research, Worker, Upgrade, Achievement"
+        },
+        {
+          "name": "Game loop and tick system",
+          "file_path": "js/game.js",
+          "lines": [
+            "35-50"
+          ],
+          "func_class_object": null
+        }
+      ]
+    },
+    "data_fetch_persistence": {
+      "name": "Game state persistence",
+      "subfeatures": [
+        {
+          "name": "Save/Load game state",
+          "file_path": "js/storage.js",
+          "lines": [
+            "4-30"
+          ],
+          "func_class_object": "ObjectStorage"
+        }
+      ]
+    },
+    "state_management": {
+      "name": "Game state updates",
+      "subfeatures": [
+        {
+          "name": "Initialize game objects state",
+          "file_path": "js/gameobjects.js",
+          "lines": [
+            "1-273"
+          ],
+          "func_class_object": null
+        },
+        {
+          "name": "Update game state in loop",
+          "file_path": "js/game.js",
+          "lines": [
+            "35-50"
+          ],
+          "func_class_object": null
+        }
+      ]
+    },
+    "event_handling": {
+      "name": "Animation loop handling",
+      "subfeatures": [
+        {
+          "name": "Game loop animation",
+          "file_path": "js/game.js",
+          "lines": [
+            "61-61"
+          ],
+          "func_class_object": "requestAnimFrame"
+        }
+      ]
+    },
+    "validation": {
+      "name": "Save version compatibility",
+      "subfeatures": [
+        {
+          "name": "Validate save version",
+          "file_path": "js/storage.js",
+          "lines": [
+            "4-30"
+          ],
+          "func_class_object": "Helpers.validateSaveVersion"
+        }
+      ]
+    },
+    "dependency_layer": {
+      "name": "External libraries and data",
+      "subfeatures": [
+        {
+          "name": "AngularJS library",
+          "file_path": "index.html",
+          "lines": [
+            "303-303"
+          ],
+          "func_class_object": null
+        },
+        {
+          "name": "jQuery library",
+          "file_path": "index.html",
+          "lines": [
+            "302-302"
+          ],
+          "func_class_object": null
+        },
+        {
+          "name": "JSON data for game objects",
+          "file_path": "json/achievements.json",
+          "lines": [
+            "1-970"
+          ],
+          "func_class_object": null
+        },
+        {
+          "name": "JSON data for game objects",
+          "file_path": "json/research.json",
+          "lines": [
+            "1-145"
+          ],
+          "func_class_object": null
+        },
+        {
+          "name": "JSON data for game objects",
+          "file_path": "json/upgrades.json",
+          "lines": [
+            "1-750"
+          ],
+          "func_class_object": null
+        },
+        {
+          "name": "JSON data for game objects",
+          "file_path": "json/workers.json",
+          "lines": [
+            "1-82"
+          ],
+          "func_class_object": null
+        }
+      ]
+    }
+  },
+  {
+    "feature": "Achievement System",
+    "nl_desc": "Tracks and notifies users when gameplay milestones are reached.",
+    "ui_layer": {
+      "name": "Achievement notifications and modal",
+      "subfeatures": [
+        {
+          "name": "Show achievement notification",
+          "file_path": "js/ui.js",
+          "lines": [
+            "123-141"
+          ],
+          "func_class_object": "showAchievement"
+        },
+        {
+          "name": "Render achievements modal UI",
+          "file_path": "index.html",
+          "lines": [
+            "216-235"
+          ],
+          "func_class_object": "achievements-modal"
+        }
+      ]
+    },
+    "presentation_logic": {
+      "name": "Achievement UI binding",
+      "subfeatures": [
+        {
+          "name": "Achievements modal controller",
+          "file_path": "js/app.js",
+          "lines": [
+            "80-95"
+          ],
+          "func_class_object": "AchievementsController"
+        }
+      ]
+    },
+    "business_logic": {
+      "name": "Achievement logic",
+      "subfeatures": [
+        {
+          "name": "Achievement object initialization",
+          "file_path": "js/gameobjects.js",
+          "lines": [
+            "235-238"
+          ],
+          "func_class_object": "Achievement"
+        },
+        {
+          "name": "Validate achievement conditions",
+          "file_path": "js/gameobjects.js",
+          "lines": null,
+          "func_class_object": "Achievement.prototype.validate"
+        },
+        {
+          "name": "Check if achievement is completed",
+          "file_path": "js/gameobjects.js",
+          "lines": null,
+          "func_class_object": "Achievement.prototype.isAchieved"
+        }
+      ]
+    },
+    "data_fetch_persistence": {
+      "name": "Achievement data loading",
+      "subfeatures": [
+        {
+          "name": "Achievement data definition",
+          "file_path": "json/achievements.json",
+          "lines": [
+            "1-970"
+          ],
+          "func_class_object": "achievements array"
+        },
+        {
+          "name": "Load achievement data",
+          "file_path": "js/gameobjects.js",
+          "lines": [
+            "235-238"
+          ],
+          "func_class_object": null
+        }
+      ]
+    },
+    "state_management": {
+      "name": "Achievement state tracking",
+      "subfeatures": [
+        {
+          "name": "Initialize achievement state",
+          "file_path": "js/gameobjects.js",
+          "lines": [
+            "235-238"
+          ],
+          "func_class_object": "Achievement"
+        },
+        {
+          "name": "Update achievement state",
+          "file_path": "js/gameobjects.js",
+          "lines": [
+            "246-249"
+          ],
+          "func_class_object": "Achievement.prototype.validate"
+        }
+      ]
+    },
+
+    "event_handling": {
+      "name": "Modal display handling",
+      "subfeatures": [
+        {
+          "name": "Achievements modal display/hide",
+          "file_path": "index.html",
+          "lines": [
+            "216-235"
+          ],
+          "func_class_object": null
+        }
+      ]
+    },
+    "validation": {
+      "name": "Achievement condition validation",
+      "subfeatures": [
+        {
+          "name": "Compare game state to thresholds",
+          "file_path": "js/gameobjects.js",
+          "lines": null,
+          "func_class_object": "Achievement.prototype.validate"
+        }
+      ]
+    },
+    "dependency_layer": {
+      "name": "Achievement dependencies",
+      "subfeatures": [
+        {
+          "name": "jQuery for DOM manipulation",
+          "file_path": "index.html",
+          "lines": [
+            "302-302"
+          ],
+          "func_class_object": null
+        },
+        {
+          "name": "Bootstrap CSS",
+          "file_path": "css/bootstrap.min.css",
+          "lines": [
+            "1-10"
+          ],
+          "func_class_object": null
+        },
+        {
+          "name": "Bootstrap JS",
+          "file_path": "index.html",
+          "lines": [
+            "304-304"
+          ],
+          "func_class_object": null
+        },
+        {
+          "name": "Helpers.loadFile",
+          "file_path": "js/helpers.js",
+          "lines": [
+            "8-18"
+          ],
+          "func_class_object": "loadFile"
+        },
+        {
+          "name": "Lab object",
+          "file_path": "js/gameobjects.js",
+          "lines": [
+            "1-273"
+          ],
+          "func_class_object": "Lab"
+        },
+        {
+          "name": "UI.showAchievement",
+          "file_path": "js/ui.js",
+          "lines": [
+            "123-141"
+          ],
+          "func_class_object": "showAchievement"
+        }
+      ]
+    }
+  },
+  {
+    "feature": "Research System",
+    "nl_desc": "Allows users to spend collected data to unlock new game capabilities.",
+    "ui_layer": {
+      "name": "Research panel UI",
+      "subfeatures": [
+        {
+          "name": "Render research UI panel",
+          "file_path": "index.html",
+          "lines": [
+            "74-100"
+          ],
+          "func_class_object": "research-panel"
+        }
+      ]
+    },
+    "presentation_logic": {
+      "name": "Research UI binding",
+      "subfeatures": [
+        {
+          "name": "Research controller",
+          "file_path": "js/app.js",
+          "lines": [
+            "50-70"
+          ],
+          "func_class_object": "ResearchController"
+        }
+      ]
+    },
+    "business_logic": {
+      "name": "Research logic",
+      "subfeatures": [
+        {
+          "name": "Research object initialization",
+          "file_path": "js/gameobjects.js",
+          "lines": [
+            "169-172"
+          ],
+          "func_class_object": "Research"
+        },
+        {
+          "name": "Check research visibility",
+          "file_path": "js/gameobjects.js",
+          "lines": null,
+          "func_class_object": "Research.prototype.isVisible"
+        },
+        {
+          "name": "Perform research action",
+          "file_path": "js/gameobjects.js",
+          "lines": null,
+          "func_class_object": "Research.prototype.research"
+        }
+      ]
+    },
+    "data_fetch_persistence": {
+      "name": "Research data loading",
+      "subfeatures": [
+        {
+          "name": "Research data definition",
+          "file_path": "json/research.json",
+          "lines": [
+            "1-145"
+          ],
+          "func_class_object": "research array"
+        },
+        {
+          "name": "Load research data",
+          "file_path": "js/gameobjects.js",
+          "lines": [
+            "169-172"
+          ],
+          "func_class_object": null
+        }
+      ]
+    },
+    "state_management": {
+      "name": "Research state updates",
+      "subfeatures": [
+        {
+          "name": "Update research state",
+          "file_path": "js/gameobjects.js",
+          "lines": [
+            "169-172"
+          ],
+          "func_class_object": null
+        }
+      ]
+    },
+    "event_handling": {
+      "name": "Research button clicks",
+      "subfeatures": [
+        {
+          "name": "Click events on research buttons",
+          "file_path": "index.html",
+          "lines": [
+            "74-100"
+          ],
+          "func_class_object": null
+        }
+      ]
+    },
+    "validation": {
+      "name": "Research requirements validation",
+      "subfeatures": [
+        {
+          "name": "Validate sufficient data",
+          "file_path": "js/gameobjects.js",
+          "lines": null,
+          "func_class_object": "Research.prototype.research"
+        }
+      ]
+    },
+    "dependency_layer": {
+      "name": "Research dependencies",
+      "subfeatures": [
+        {
+          "name": "Helpers.loadFile",
+          "file_path": "js/helpers.js",
+          "lines": [
+            "8-18"
+          ],
+          "func_class_object": "loadFile"
+        },
+        {
+          "name": "Lab object",
+          "file_path": "js/gameobjects.js",
+          "lines": [
+            "1-273"
+          ],
+          "func_class_object": "Lab"
+        },
+        {
+          "name": "AngularJS directives",
+          "file_path": "index.html",
+          "lines": [
+            "303-303"
+          ],
+          "func_class_object": null
+        }
+      ]
+    }
+  },
+  {
+    "feature": "Worker System",
+    "nl_desc": "Lets users hire workers to automate clicks and data generation.",
+    "ui_layer": {
+      "name": "Worker panel UI",
+      "subfeatures": [
+        {
+          "name": "Render HR (worker) UI panel",
+          "file_path": "index.html",
+          "lines": [
+            "135-157"
+          ],
+          "func_class_object": "hr-panel"
+        }
+      ]
+    },
+    "presentation_logic": {
+      "name": "Worker UI binding",
+      "subfeatures": [
+        {
+          "name": "HR controller",
+          "file_path": "js/app.js",
+          "lines": [
+            "100-120"
+          ],
+          "func_class_object": "HRController"
+        }
+      ]
+    },
+    "business_logic": {
+      "name": "Worker logic",
+      "subfeatures": [
+        {
+          "name": "Worker object initialization",
+          "file_path": "js/gameobjects.js",
+          "lines": [
+            "188-191"
+          ],
+          "func_class_object": "Worker"
+        },
+        {
+          "name": "Check worker visibility",
+          "file_path": "js/gameobjects.js",
+          "lines": null,
+          "func_class_object": "Worker.prototype.isVisible"
+        },
+        {
+          "name": "Hire a worker",
+          "file_path": "js/gameobjects.js",
+          "lines": null,
+          "func_class_object": "Worker.prototype.hire"
+        }
+      ]
+    },
+    "data_fetch_persistence": {
+      "name": "Worker data loading",
+      "subfeatures": [
+        {
+          "name": "Worker data definition",
+          "file_path": "json/workers.json",
+          "lines": [
+            "1-82"
+          ],
+          "func_class_object": "workers array"
+        },
+        {
+          "name": "Load worker data",
+          "file_path": "js/gameobjects.js",
+          "lines": [
+            "188-191"
+          ],
+          "func_class_object": null
+        }
+      ]
+    },
+    "state_management": {
+      "name": "Worker state updates",
+      "subfeatures": [
+        {
+          "name": "Update worker state",
+          "file_path": "js/gameobjects.js",
+          "lines": [
+            "188-191"
+          ],
+          "func_class_object": null
+        }
+      ]
+    },
+    "event_handling": {
+      "name": "Worker hire button clicks",
+      "subfeatures": [
+        {
+          "name": "Click events on hire buttons",
+          "file_path": "index.html",
+          "lines": [
+            "135-157"
+          ],
+          "func_class_object": null
+        }
+      ]
+    },
+    "validation": {
+      "name": "Worker funding validation",
+      "subfeatures": [
+        {
+          "name": "Validate sufficient funding",
+          "file_path": "js/gameobjects.js",
+          "lines": null,
+          "func_class_object": "Worker.prototype.hire"
+        }
+      ]
+    },
+    "dependency_layer": {
+      "name": "Worker dependencies",
+      "subfeatures": [
+        {
+          "name": "Helpers.loadFile",
+          "file_path": "js/helpers.js",
+          "lines": [
+            "8-18"
+          ],
+          "func_class_object": "loadFile"
+        },
+        {
+          "name": "Lab object",
+          "file_path": "js/gameobjects.js",
+          "lines": [
+            "1-273"
+          ],
+          "func_class_object": "Lab"
+        },
+        {
+          "name": "AngularJS directives",
+          "file_path": "index.html",
+          "lines": [
+            "303-303"
+          ],
+          "func_class_object": null
+        }
+      ]
+    }
+  },
+  {
+    "feature": "Resource Management",
+    "nl_desc": "Handles generation and spending of data, reputation, and funding ('mana') during gameplay.",
+    "ui_layer": {
+      "name": "Resource display UI",
+      "subfeatures": [
+        {
+          "name": "Update resource display",
+          "file_path": "index.html",
+          "lines": [
+            "116-132"
+          ],
+          "func_class_object": "status row"
+        }
+      ]
+    },
+    "presentation_logic": {
+      "name": "Resource formatting",
+      "subfeatures": [
+        {
+          "name": "Format resource values",
+          "file_path": "js/app.js",
+          "lines": [
+            "11-31"
+          ],
+          "func_class_object": "niceNumber, currency"
+        }
+      ]
+    },
+    "business_logic": {
+      "name": "Resource calculations",
+      "subfeatures": [
+        {
+          "name": "Spend data to perform research",
+          "file_path": "js/gameobjects.js",
+          "lines": null,
+          "func_class_object": "Lab.prototype.research"
+        },
+        {
+          "name": "Spend funding to buy items",
+          "file_path": "js/gameobjects.js",
+          "lines": null,
+          "func_class_object": "Lab.prototype.buy"
+        },
+        {
+          "name": "Generate funding from reputation",
+          "file_path": "js/gameobjects.js",
+          "lines": null,
+          "func_class_object": "Lab.prototype.getGrant"
+        }
+      ]
+    },
+    "data_fetch_persistence": {
+      "name": null,
+      "subfeatures": []
+    },
+    "state_management": {
+      "name": "Resource state initialization and updates",
+      "subfeatures": [
+        {
+          "name": "Initialize lab state",
+          "file_path": "js/gameobjects.js",
+          "lines": [
+            "1-273"
+          ],
+          "func_class_object": "Lab"
+        },
+        {
+          "name": "Update resource states",
+          "file_path": "js/gameobjects.js",
+          "lines": [
+            "1-273"
+          ],
+          "func_class_object": null
+        }
+      ]
+    },
+    "event_handling": {
+      "name": null,
+      "subfeatures": []
+    },
+    "validation": {
+      "name": "Resource sufficiency checks",
+      "subfeatures": [
+        {
+          "name": "Validate data for research",
+          "file_path": "js/gameobjects.js",
+          "lines": null,
+          "func_class_object": "Lab.prototype.research"
+        },
+        {
+          "name": "Validate funding for purchases",
+          "file_path": "js/gameobjects.js",
+          "lines": null,
+          "func_class_object": "Lab.prototype.buy"
+        }
+      ]
+    },
+    "dependency_layer": {
+      "name": "Resource display dependencies",
+      "subfeatures": [
+        {
+          "name": "LabController",
+          "file_path": "js/app.js",
+          "lines": [
+            "102-132"
+          ],
+          "func_class_object": "LabController"
+        }
+      ]
+    }
+  },
+  {
+    "feature": "Upgrade System",
+    "nl_desc": "Allows users to purchase upgrades that enhance game mechanics, such as data generation or click efficiency.",
+    "ui_layer": {
+      "name": "Upgrades panel UI",
+      "subfeatures": [
+        {
+          "name": "Render upgrades UI panel",
+          "file_path": "index.html",
+          "lines": [
+            "160-170"
+          ],
+          "func_class_object": "upgrades panel"
+        }
+      ]
+    },
+    "presentation_logic": {
+      "name": "Upgrades UI binding",
+      "subfeatures": [
+        {
+          "name": "Upgrades controller",
+          "file_path": "js/app.js",
+          "lines": [
+            "122-125"
+          ],
+          "func_class_object": "UpgradesController"
+        }
+      ]
+    },
+    "business_logic": {
+      "name": "Upgrade logic",
+      "subfeatures": [
+        {
+          "name": "Upgrade object initialization",
+          "file_path": "js/gameobjects.js",
+          "lines": [
+            "204-207"
+          ],
+          "func_class_object": "Upgrade"
+        },
+        {
+          "name": "Apply upgrade effects",
+          "file_path": "js/gameobjects.js",
+          "lines": null,
+          "func_class_object": "Upgrade.prototype.apply"
+        },
+        {
+          "name": "Check upgrade availability",
+          "file_path": "js/gameobjects.js",
+          "lines": null,
+          "func_class_object": "Upgrade.prototype.isAvailable"
+        }
+      ]
+    },
+    "data_fetch_persistence": {
+      "name": "Upgrade data loading",
+      "subfeatures": [
+        {
+          "name": "Upgrade data definition",
+          "file_path": "json/upgrades.json",
+          "lines": [
+            "1-750"
+          ],
+          "func_class_object": "upgrades array"
+        },
+        {
+          "name": "Load upgrade data",
+          "file_path": "js/gameobjects.js",
+          "lines": [
+            "204-207"
+          ],
+          "func_class_object": null
+        }
+      ]
+    },
+    "state_management": {
+      "name": "Upgrade state updates",
+      "subfeatures": [
+        {
+          "name": "Initialize upgrade state",
+          "file_path": "js/gameobjects.js",
+          "lines": [
+            "204-207"
+          ],
+          "func_class_object": null
+        },
+        {
+          "name": "Update upgrade state",
+          "file_path": "js/gameobjects.js",
+          "lines": [
+            "204-207"
+          ],
+          "func_class_object": null
+        }
+      ]
+    },
+    "event_handling": {
+      "name": "Upgrade button clicks",
+      "subfeatures": [
+        {
+          "name": "Click events on upgrade buttons",
+          "file_path": "index.html",
+          "lines": [
+            "160-170"
+          ],
+          "func_class_object": null
+        }
+      ]
+    },
+    "validation": {
+      "name": "Upgrade requirements validation",
+      "subfeatures": [
+        {
+          "name": "Validate funding and requirements",
+          "file_path": "js/gameobjects.js",
+          "lines": null,
+          "func_class_object": "Upgrade.prototype.isAvailable"
+        }
+      ]
+    },
+    "dependency_layer": {
+      "name": "Upgrade dependencies",
+      "subfeatures": [
+        {
+          "name": "Helpers.loadFile",
+          "file_path": "js/helpers.js",
+          "lines": [
+            "8-18"
+          ],
+          "func_class_object": "loadFile"
+        },
+        {
+          "name": "Lab object",
+          "file_path": "js/gameobjects.js",
+          "lines": [
+            "1-273"
+          ],
+          "func_class_object": "Lab"
+        },
+        {
+          "name": "AngularJS directives",
+          "file_path": "index.html",
+          "lines": [
+            "303-303"
+          ],
+          "func_class_object": null
+        }
+      ]
+    }
+  },
+  {
+    "feature": "Detector Interaction and Visualization",
+    "nl_desc": "Manages user clicks on the particle detector to generate data and visualizes particle events.",
+    "ui_layer": {
+      "name": "Detector canvas UI",
+      "subfeatures": [
+        {
+          "name": "Detector canvas setup",
+          "file_path": "js/detector.js",
+          "lines": [
+            "89-137"
+          ],
+          "func_class_object": "detector.init"
+        },
+        {
+          "name": "Detector core rendering",
+          "file_path": "js/detector.js",
+          "lines": [
+            "143-209"
+          ],
+          "func_class_object": "detector.coreDraw"
+        },
+        {
+          "name": "Particle event rendering",
+          "file_path": "js/detector.js",
+          "lines": [
+            "211-255"
+          ],
+          "func_class_object": "detector.draw"
+        },
+        {
+          "name": "Handle detector clicks",
+          "file_path": "index.html",
+          "lines": [
+            "110-110"
+          ],
+          "func_class_object": "detector-events"
+        }
+      ]
+    },
+    "presentation_logic": {
+      "name": "Detector canvas rendering",
+      "subfeatures": [
+        {
+          "name": "Canvas context initialization",
+          "file_path": "js/detector.js",
+          "lines": [
+            "89-137"
+          ],
+          "func_class_object": null
+        },
+        {
+          "name": "Draw detector shapes",
+          "file_path": "js/detector.js",
+          "lines": [
+            "143-255"
+          ],
+          "func_class_object": null
+        }
+      ]
+    },
+    "business_logic": {
+      "name": "Detector click logic",
+      "subfeatures": [
+        {
+          "name": "Process detector clicks",
+          "file_path": "js/gameobjects.js",
+          "lines": null,
+          "func_class_object": "Lab"
+        }
+      ]
+    },
+    "data_fetch_persistence": {
+      "name": null,
+      "subfeatures": []
+    },
+    "state_management": {
+      "name": "Detector state",
+      "subfeatures": [
+        {
+          "name": "Store canvas dimensions and clicks",
+          "file_path": "js/detector.js",
+          "lines": [
+            "89-137"
+          ],
+          "func_class_object": null
+        },
+        {
+          "name": "Update click and data state",
+          "file_path": "js/gameobjects.js",
+          "lines": null,
+          "func_class_object": "Lab"
+        }
+      ]
+    },
+    "event_handling": {
+      "name": "Detector animation and clicks",
+      "subfeatures": [
+        {
+          "name": "Detector animation loop",
+          "file_path": "js/detector.js",
+          "lines": [
+            "81-86"
+          ],
+          "func_class_object": "detector.animate"
+        },
+        {
+          "name": "Capture detector click events",
+          "file_path": "index.html",
+          "lines": [
+            "110-110"
+          ],
+          "func_class_object": null
+        }
+      ]
+    },
+    "validation": {
+      "name": null,
+      "subfeatures": []
+    },
+    "dependency_layer": {
+      "name": "Detector dependencies",
+      "subfeatures": [
+        {
+          "name": "Lab object",
+          "file_path": "js/gameobjects.js",
+          "lines": [
+            "1-273"
+          ],
+          "func_class_object": "Lab"
+        },
+        {
+          "name": "DetectorController",
+          "file_path": "js/app.js",
+          "lines": [
+            "33-48"
+          ],
+          "func_class_object": "DetectorController"
+        }
+      ]
+    }
+  },
+  {
+    "feature": "Information Modals",
+    "nl_desc": "Displays detailed information about game elements (e.g., research, detector) in modal windows.",
+    "ui_layer": {
+      "name": "Modal UI",
+      "subfeatures": [
+        {
+          "name": "Research info modal",
+          "file_path": "index.html",
+          "lines": [
+            "204-214"
+          ],
+          "func_class_object": "infoBox"
+        },
+        {
+          "name": "Detector info modal",
+          "file_path": "index.html",
+          "lines": [
+            "204-214"
+          ],
+          "func_class_object": "infoBox"
+        }
+      ]
+    },
+    "presentation_logic": {
+      "name": "Modal content loading",
+      "subfeatures": [
+        {
+          "name": "Load research modal content",
+          "file_path": "js/app.js",
+          "lines": [
+            "40-42"
+          ],
+          "func_class_object": "ResearchController.showInfo"
+        },
+        {
+          "name": "Load detector modal content",
+          "file_path": "js/app.js",
+          "lines": [
+            "44-46"
+          ],
+          "func_class_object": "LabController.showDetectorInfo"
+        }
+      ]
+    },
+    "business_logic": {
+      "name": null,
+      "subfeatures": []
+    },
+    "data_fetch_persistence": {
+      "name": "Modal content fetching",
+      "subfeatures": [
+        {
+          "name": "Fetch research HTML content",
+          "file_path": "index.html",
+          "lines": [
+            "204-214"
+          ],
+          "func_class_object": null
+        },
+        {
+          "name": "Fetch detector HTML content",
+          "file_path": "index.html",
+          "lines": [
+            "204-214"
+          ],
+          "func_class_object": null
+        }
+      ]
+    },
+    "state_management": {
+      "name": null,
+      "subfeatures": []
+    },
+    "event_handling": {
+      "name": "Modal display events",
+      "subfeatures": [
+        {
+          "name": "Open research info modal",
+          "file_path": "index.html",
+          "lines": [
+            "204-214"
+          ],
+          "func_class_object": null
+        },
+        {
+          "name": "Open detector info modal",
+          "file_path": "index.html",
+          "lines": [
+            "204-214"
+          ],
+          "func_class_object": null
+        }
+      ]
+    },
+    "validation": {
+      "name": null,
+      "subfeatures": []
+    },
+    "dependency_layer": {
+      "name": "Modal dependencies",
+      "subfeatures": [
+        {
+          "name": "Bootstrap Modal JS",
+          "file_path": "index.html",
+          "lines": [
+            "304-304"
+          ],
+          "func_class_object": null
+        },
+        {
+          "name": "jQuery for loading HTML",
+          "file_path": "index.html",
+          "lines": [
+            "302-302"
+          ],
+          "func_class_object": null
+        },
+        {
+          "name": "ResearchController",
+          "file_path": "js/app.js",
+          "lines": [
+            "40-42"
+          ],
+          "func_class_object": "ResearchController"
+        },
+        {
+          "name": "LabController",
+          "file_path": "js/app.js",
+          "lines": [
+            "44-46"
+          ],
+          "func_class_object": "LabController"
+        }
+      ]
+    }
+  },
+  {
+    "feature": "Histogram Display",
+    "nl_desc": "Visualizes statistical distributions of generated particle events using histograms.",
+    "ui_layer": {
+      "name": "Histogram SVG UI",
+      "subfeatures": [
+        {
+          "name": "Histogram rendering",
+          "file_path": "js/histogram.js",
+          "lines": [
+            "2-117"
+          ],
+          "func_class_object": "draw_hist"
+        }
+      ]
+    },
+    "presentation_logic": {
+      "name": "Histogram drawing",
+      "subfeatures": [
+        {
+          "name": "Draw histogram bars",
+          "file_path": "js/histogram.js",
+          "lines": [
+            "2-117"
+          ],
+          "func_class_object": null
+        },
+        {
+          "name": "Redraw histogram with new data",
+          "file_path": "js/histogram.js",
+          "lines": [
+            "124-129"
+          ],
+          "func_class_object": null
+        }
+      ]
+    },
+    "business_logic": {
+      "name": "Histogram calculations",
+      "subfeatures": [
+        {
+          "name": "Calculate histogram bins",
+          "file_path": "js/histogram.js",
+          "lines": [
+            "2-117"
+          ],
+          "func_class_object": null
+        },
+        {
+          "name": "Generate random event values",
+          "file_path": "js/histogram.js",
+          "lines": [
+            "124-129"
+          ],
+          "func_class_object": null
+        }
+      ]
+    },
+    "data_fetch_persistence": {
+      "name": null,
+      "subfeatures": []
+    },
+    "state_management": {
+      "name": "Histogram state",
+      "subfeatures": [
+        {
+          "name": "Store event values",
+          "file_path": "js/histogram.js",
+          "lines": [
+            "2-117"
+          ],
+          "func_class_object": "this.values"
+        },
+        {
+          "name": "Reset histogram values",
+          "file_path": "js/histogram.js",
+          "lines": [
+            "131-135"
+          ],
+          "func_class_object": null
+        }
+      ]
+    },
+    "event_handling": {
+      "name": null,
+      "subfeatures": []
+    },
+    "validation": {
+      "name": null,
+      "subfeatures": []
+    },
+    "dependency_layer": {
+      "name": "Histogram dependencies",
+      "subfeatures": [
+        {
+          "name": "D3.js library",
+          "file_path": "index.html",
+          "lines": [
+            "309-309"
+          ],
+          "func_class_object": null
+        },
+        {
+          "name": "jQuery for array merging",
+          "file_path": "index.html",
+          "lines": [
+            "302-302"
+          ],
+          "func_class_object": null
+        }
+      ]
+    }
+  },
+  {
+    "feature": "Helper Functions",
+    "nl_desc": "Provides common utility functions for file loading, number formatting, and time formatting.",
+    "ui_layer": {
+      "name": null,
+      "subfeatures": []
+    },
+    "presentation_logic": {
+      "name": "Formatting utilities",
+      "subfeatures": [
+        {
+          "name": "Number formatting with postfixes",
+          "file_path": "js/helpers.js",
+          "lines": [
+            "22-45"
+          ],
+          "func_class_object": "formatNumberPostfix"
+        },
+        {
+          "name": "Time formatting",
+          "file_path": "js/helpers.js",
+          "lines": [
+            "47-70"
+          ],
+          "func_class_object": "formatTime"
+        }
+      ]
+    },
+    "business_logic": {
+      "name": "Formatting logic",
+      "subfeatures": [
+        {
+          "name": "Number formatting logic",
+          "file_path": "js/helpers.js",
+          "lines": [
+            "22-45"
+          ],
+          "func_class_object": null
+        },
+        {
+          "name": "Time conversion logic",
+          "file_path": "js/helpers.js",
+          "lines": [
+            "47-70"
+          ],
+          "func_class_object": null
+        }
+      ]
+    },
+    "data_fetch_persistence": {
+      "name": "File loading",
+      "subfeatures": [
+        {
+          "name": "File loading utility",
+          "file_path": "js/helpers.js",
+          "lines": [
+            "8-18"
+          ],
+          "func_class_object": "loadFile"
+        }
+      ]
+    },
+    "state_management": {
+      "name": null,
+      "subfeatures": []
+    },
+    "event_handling": {
+      "name": null,
+      "subfeatures": []
+    },
+    "validation": {
+      "name": "Number input validation",
+      "subfeatures": [
+        {
+          "name": "Validate number input",
+          "file_path": "js/helpers.js",
+          "lines": [
+            "22-45"
+          ],
+          "func_class_object": null
+        }
+      ]
+    },
+    "dependency_layer": {
+      "name": "Helper dependencies",
+      "subfeatures": [
+        {
+          "name": "jQuery.ajax",
+          "file_path": "index.html",
+          "lines": [
+            "302-302"
+          ],
+          "func_class_object": null
+        }
+      ]
+    }
+  },
+  {
+    "feature": "Overall Layout and Styling",
+    "nl_desc": "Defines the visual structure and appearance of the entire game interface.",
+    "ui_layer": {
+      "name": "Game layout",
+      "subfeatures": [
+        {
+          "name": "HTML page structure",
+          "file_path": "index.html",
+          "lines": [
+            "1-319"
+          ],
+          "func_class_object": "body content"
+        },
+        {
+          "name": "Core CSS styling",
+          "file_path": "css/style.css",
+          "lines": [
+            "1-297"
+          ],
+          "func_class_object": null
+        }
+      ]
+    },
+    "presentation_logic": {
+      "name": null,
+      "subfeatures": []
+    },
+    "business_logic": {
+      "name": null,
+      "subfeatures": []
+    },
+    "data_fetch_persistence": {
+      "name": null,
+      "subfeatures": []
+    },
+    "state_management": {
+      "name": null,
+      "subfeatures": []
+    },
+    "event_handling": {
+      "name": null,
+      "subfeatures": []
+    },
+    "validation": {
+      "name": null,
+      "subfeatures": []
+    },
+    "dependency_layer": {
+      "name": "Layout dependencies",
+      "subfeatures": [
+        {
+          "name": "Bootstrap CSS",
+          "file_path": "css/bootstrap.min.css",
+          "lines": [
+            "1-10"
+          ],
+          "func_class_object": null
+        },
+        {
+          "name": "Bootstrap JS",
+          "file_path": "index.html",
+          "lines": [
+            "304-304"
+          ],
+          "func_class_object": null
+        }
+      ]
+    }
+  },
+  {
+    "feature": "Google Analytics Integration",
+    "nl_desc": "Tracks user interactions and game events for analytical purposes.",
+    "ui_layer": {
+      "name": null,
+      "subfeatures": []
+    },
+    "presentation_logic": {
+      "name": null,
+      "subfeatures": []
+    },
+    "business_logic": {
+      "name": "Analytics tracking",
+      "subfeatures": [
+        {
+          "name": "Send analytics events",
+          "file_path": "js/analytics.js",
+          "lines": [
+            "1-12"
+          ],
+          "func_class_object": null
+        }
+      ]
+    },
+    "data_fetch_persistence": {
+      "name": null,
+      "subfeatures": []
+    },
+    "state_management": {
+      "name": null,
+      "subfeatures": []
+    },
+    "event_handling": {
+      "name": "Analytics event triggers",
+      "subfeatures": [
+        {
+          "name": "Track page views and events",
+          "file_path": "js/analytics.js",
+          "lines": [
+            "1-12"
+          ],
+          "func_class_object": null
+        }
+      ]
+    },
+    "validation": {
+      "name": null,
+      "subfeatures": []
+    },
+    "dependency_layer": {
+      "name": "Analytics dependencies",
+      "subfeatures": [
+        {
+          "name": "Google Analytics library",
+          "file_path": "index.html",
+          "lines": [
+            "23-29"
+          ],
+          "func_class_object": null
+        }
+      ]
+    }
+  }
+]
