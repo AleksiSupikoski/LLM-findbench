@@ -1,0 +1,227 @@
+[
+  {
+    "superfeature": "Analytics & Consent",
+    "features": [
+      {
+        "tag": "modification",
+        "feature_desc": "Gate GA include behind consent in Oscar base layout (wrap the existing include with an if).",
+        "file_paths": [
+          { "path": "oscardropship/templates/oscar/base.html", "lines": "25-28", "code_preview": null },
+          { "path": "oscardropship/templates/oscar/partials/google_analytics.html", "lines": null, "code_preview": null, "optional": true }
+        ]
+      },
+      {
+        "tag": "modification",
+        "feature_desc": "Gate GA include behind consent in UIkit base layout (wrap the existing include with an if).",
+        "file_paths": [
+          { "path": "oscardropship/templates/uikit/base.html", "lines": "28-31", "code_preview": null },
+          { "path": "oscardropship/templates/oscar/partials/google_analytics.html", "lines": null, "code_preview": null, "optional": true }
+        ]
+      },
+      {
+        "tag": "addition",
+        "feature_desc": "Expose Django messages as JSON (insert just after page scripts and before </body>).",
+        "file_paths": [
+          { "path": "oscardropship/templates/oscar/base.html", "lines": null, "code_preview": null },
+          { "path": "oscardropship/system/templatetags/json_messages.py", "lines": null, "code_preview": null, "optional": true }
+        ]
+      }
+    ]
+  },
+  {
+    "superfeature": "Search UX",
+    "features": [
+      {
+        "tag": "modification",
+        "feature_desc": "Echo total results count directly below the SEARCH RESULTS heading.",
+        "file_paths": [
+          { "path": "oscardropship/templates/oscar/search/results.html", "lines": null, "code_preview": null }
+        ]
+      },
+      {
+        "tag": "modification",
+        "feature_desc": "Add canonical link on search results to stabilize discovery across pagination and params (in an extrahead block near the top).",
+        "file_paths": [
+          { "path": "oscardropship/templates/oscar/search/results.html", "lines": null, "code_preview": null }
+        ]
+      },
+      {
+        "tag": "modification",
+        "feature_desc": "Emit meta robots 'noindex,follow' when there are zero results (in extrahead via conditional).",
+        "file_paths": [
+          { "path": "oscardropship/templates/oscar/search/results.html", "lines": "13-19", "code_preview": null }
+        ]
+      },
+      {
+        "tag": "modification",
+        "feature_desc": "Insert a 'sort by' select (price asc/desc, newest) above the results list container.",
+        "file_paths": [
+          { "path": "oscardropship/templates/oscar/search/results.html", "lines": "34-36", "code_preview": null },
+          { "path": "oscardropship/templates/oscar/search/partials/pagination.html", "lines": "1-20", "code_preview": null, "optional": true }
+        ]
+      }
+    ]
+  },
+  {
+    "superfeature": "Catalogue & Availability",
+    "features": [
+      {
+        "tag": "modification",
+        "feature_desc": "Add 'Out of stock' ribbon within the card media block (inside the first media container).",
+        "file_paths": [
+          { "path": "oscardropship/templates/uikit/wagtail/partials/product_small.html", "lines": "4-12", "code_preview": null },
+          { "path": "oscardropship/custom_oscar/partner/strategy.py", "lines": "340-371", "code_preview": null, "optional": true }
+        ]
+      },
+      {
+        "tag": "modification",
+        "feature_desc": "Keep short category URLs by returning the compact route in the override method.",
+        "file_paths": [
+          { "path": "oscardropship/custom_oscar/catalogue/abstract_models.py", "lines": "18-30", "code_preview": null }
+        ]
+      }
+    ]
+  },
+  {
+    "superfeature": "Checkout / UX & Anti-spam",
+    "features": [
+      {
+        "tag": "modification",
+        "feature_desc": "Add an invisible honeypot field to the user address form and validate server-side.",
+        "file_paths": [
+          { "path": "oscardropship/templates/oscar/checkout/user_address_form.html", "lines": "19-31", "code_preview": null },
+          { "path": "oscardropship/custom_oscar/checkout/views.py", "lines": "37-56", "code_preview": null, "optional": true }
+        ]
+      },
+      {
+        "tag": "modification",
+        "feature_desc": "Surface PAYPAL_CLIENT_ID in checkout payment context (ensure setting is passed to template).",
+        "file_paths": [
+          { "path": "oscardropship/custom_oscar/checkout/views.py", "lines": "29-35", "code_preview": null }
+        ]
+      }
+    ]
+  },
+  {
+    "superfeature": "Dashboard / Orders & Reporting",
+    "features": [
+      {
+        "tag": "modification",
+        "feature_desc": "Add 'Gross margin' column next to 'Total incl. tax' (header + per-row cell).",
+        "file_paths": [
+          { "path": "oscardropship/templates/oscar/dashboard/reports/partials/order_report.html", "lines": "12-14", "code_preview": null },
+          { "path": "oscardropship/templates/oscar/dashboard/reports/partials/order_report.html", "lines": "16-21", "code_preview": null }
+        ]
+      }
+    ]
+  },
+  {
+    "superfeature": "UI Feedback (Alerts)",
+    "features": [
+      {
+        "tag": "modification",
+        "feature_desc": "Normalize tag mapping (ensure 'error' => 'danger') in storefront alerts.",
+        "file_paths": [
+          { "path": "oscardropship/templates/oscar/partials/alert_messages.html", "lines": "14-14", "code_preview": null }
+        ]
+      },
+      {
+        "tag": "modification",
+        "feature_desc": "Ensure storefront alert close buttons render within the alert div (fix markup nesting).",
+        "file_paths": [
+          { "path": "oscardropship/templates/oscar/partials/alert_messages.html", "lines": "15-16", "code_preview": null }
+        ]
+      },
+      {
+        "tag": "modification",
+        "feature_desc": "Normalize tag mapping in dashboard alerts too.",
+        "file_paths": [
+          { "path": "oscardropship/templates/oscar/dashboard/partials/alert_messages.html", "lines": "1-20", "code_preview": null }
+        ]
+      }
+    ]
+  },
+  {
+    "superfeature": "SEO & Tracking",
+    "features": [
+      {
+        "tag": "modification",
+        "feature_desc": "Provide a default page_type block in Oscar layout so templates can override it (put block at top of layout).",
+        "file_paths": [
+          { "path": "oscardropship/templates/oscar/layout.html", "lines": "1-4", "code_preview": null }
+        ]
+      },
+      {
+        "tag": "modification",
+        "feature_desc": "Emit GA page_type (and push a page-specific dataLayer) immediately after GA config.",
+        "file_paths": [
+          { "path": "oscardropship/templates/oscar/partials/google_analytics.html", "lines": "1-20", "code_preview": null }
+        ]
+      }
+    ]
+  },
+  {
+    "superfeature": "Theming / Navigation",
+    "features": [
+      {
+        "tag": "modification",
+        "feature_desc": "Add a compact mini-basket item count badge inside the primary nav link.",
+        "file_paths": [
+          { "path": "oscardropship/templates/oscar/layout.html", "lines": "21-33", "code_preview": null },
+          { "path": "oscardropship/templates/oscar/partials/mini_basket.html", "lines": "1-20", "code_preview": null, "optional": true }
+        ]
+      }
+    ]
+  },
+  {
+    "superfeature": "Routing / URLs",
+    "features": [
+      {
+        "tag": "addition",
+        "feature_desc": "Add '/healthz' endpoint for load-balancer probes (204 No Content).",
+        "file_paths": [
+          { "path": "config/urls.py", "lines": "26-37", "code_preview": null },
+          { "path": "oscardropship/system/views.py", "lines": "1-8", "code_preview": null }
+        ]
+      }
+    ]
+  },
+  {
+    "superfeature": "Payments / Webhook & Security",
+    "features": [
+      {
+        "tag": "modification",
+        "feature_desc": "Restrict any future payments webhook URL to POST only inside custom shop router.",
+        "file_paths": [
+          { "path": "oscardropship/custom_oscar/config.py", "lines": "7-20", "code_preview": null }
+        ]
+      },
+      {
+        "tag": "modification",
+        "feature_desc": "Before persisting PayPal payloads, verify signature using transmission headers.",
+        "file_paths": [
+          { "path": "oscardropship/custom_oscar/checkout/views.py", "lines": "64-82", "code_preview": null }
+        ]
+      }
+    ]
+  },
+  {
+    "superfeature": "Newsletter / GDPR",
+    "features": [
+      {
+        "tag": "addition",
+        "feature_desc": "Add a GDPR consent checkbox to the newsletter subscribe form and enforce it server-side.",
+        "file_paths": [
+          { "path": "oscardropship/templates/newsletter/subscription_subscribe.html", "lines": "19-24", "code_preview": null }
+        ]
+      },
+      {
+        "tag": "modification",
+        "feature_desc": "Add rel='noopener' and absolute URLs in newsletter message template links for security/SEO.",
+        "file_paths": [
+          { "path": "oscardropship/templates/newsletter/message/message.html", "lines": "20-30", "code_preview": null }
+        ]
+      }
+    ]
+  }
+]

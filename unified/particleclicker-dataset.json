@@ -1,0 +1,1000 @@
+[
+  {
+    "superfeature": "Workers",
+    "features": [
+      {
+        "tag": "modification",
+        "feature_desc": "Show '+1 hired' microtoast next to worker hire button.",
+        "file_paths": [
+          {
+            "path": "index.html",
+            "lines": "147-153",
+            "code_preview": [
+              "                    <h4 class=\"media-heading\">{{ w.name }} <span ng-show=\"w.state.hired > 0\" class=\"badge\">{{ w.state.hired | niceNumber }}</span></h4>",
+              "                    <p ng-show=\"w.state.hired > 0\">{{ w.description }}</p>",
+              "                    <p ng-show=\"w.state.hired > 0\" class=\"small\">Produce <strong>{{ w.state.rate | niceNumber }}</strong> data per second.</p>",
+              "                    <button class=\"btn btn-primary\" ng-disabled=\"!hrc.isAvailable(w)\" ng-click=\"hrc.hire(w)\"><i class=\"fa fa-user\"></i> <small>{{ w.state.cost | currency }}</small></button>",
+              "                  </div>",
+              "                </li>"
+            ]
+          },
+          { "path": "js/ui.js", "lines": null, "code_preview": null, "optional": true },
+          { "path": "css/style.css", "lines": null, "code_preview": null, "optional": true }
+        ]
+      },
+      {
+        "tag": "modification",
+        "feature_desc": "Color worker cost red when funding is insufficient.",
+        "file_paths": [
+          {
+            "path": "index.html",
+            "lines": "147-153",
+            "code_preview": [
+              "                    <h4 class=\"media-heading\">{{ w.name }} <span ng-show=\"w.state.hired > 0\" class=\"badge\">{{ w.state.hired | niceNumber }}</span></h4>",
+              "                    <p ng-show=\"w.state.hired > 0\">{{ w.description }}</p>",
+              "                    <p ng-show=\"w.state.hired > 0\" class=\"small\">Produce <strong>{{ w.state.rate | niceNumber }}</strong> data per second.</p>",
+              "                    <button class=\"btn btn-primary\" ng-disabled=\"!hrc.isAvailable(w)\" ng-click=\"hrc.hire(w)\"><i class=\"fa fa-user\"></i> <small>{{ w.state.cost | currency }}</small></button>",
+              "                  </div>",
+              "                </li>"
+            ]
+          },
+          { "path": "css/style.css", "lines": null, "code_preview": null, "optional": true },
+          { "path": "js/app.js", "lines": null, "code_preview": null, "optional": true }
+        ]
+      },
+      {
+        "tag": "modification",
+        "feature_desc": "Display a 'NEW' badge on newly unlocked workers.",
+        "file_paths": [
+          {
+            "path": "index.html",
+            "lines": "147-153",
+            "code_preview": [
+              "                    <h4 class=\"media-heading\">{{ w.name }} <span ng-show=\"w.state.hired > 0\" class=\"badge\">{{ w.state.hired | niceNumber }}</span></h4>",
+              "                    <p ng-show=\"w.state.hired > 0\">{{ w.description }}</p>",
+              "                    <p ng-show=\"w.state.hired > 0\" class=\"small\">Produce <strong>{{ w.state.rate | niceNumber }}</strong> data per second.</p>",
+              "                    <button class=\"btn btn-primary\" ng-disabled=\"!hrc.isAvailable(w)\" ng-click=\"hrc.hire(w)\"><i class=\"fa fa-user\"></i> <small>{{ w.state.cost | currency }}</small></button>",
+              "                  </div>",
+              "                </li>"
+            ]
+          },
+          { "path": "css/style.css", "lines": null, "code_preview": null, "optional": true },
+          { "path": "js/app.js", "lines": null, "code_preview": null, "optional": true }
+        ]
+      },
+      {
+        "tag": "addition",
+        "feature_desc": "Add new worker 'Physicist' with higher data output.",
+        "file_paths": [
+          { "path": "json/workers.json", "lines": null, "code_preview": null },
+          { "path": "js/app.js", "lines": null, "code_preview": null, "optional": true }
+        ]
+      },
+      {
+        "tag": "modification",
+        "feature_desc": "Show a tooltip on the Hire button explaining cost scaling.",
+        "file_paths": [
+          {
+            "path": "index.html",
+            "lines": "146-152",
+            "code_preview": [
+              "                  <div class=\"media-body\">",
+              "                    <h4 class=\"media-heading\">{{ w.name }} <span ng-show=\"w.state.hired > 0\" class=\"badge\">{{ w.state.hired | niceNumber }}</span></h4>",
+              "                    <p ng-show=\"w.state.hired > 0\">{{ w.description }}</p>",
+              "                    <p ng-show=\"w.state.hired > 0\" class=\"small\">Produce <strong>{{ w.state.rate | niceNumber }}</strong> data per second.</p>",
+              "                    <button class=\"btn btn-primary\" ng-disabled=\"!hrc.isAvailable(w)\" ng-click=\"hrc.hire(w)\"><i class=\"fa fa-user\"></i> <small>{{ w.state.cost | currency }}</small></button>",
+              "                  </div>"
+            ]
+          },
+          { "path": "js/ui.js", "lines": null, "code_preview": null, "optional": true },
+          { "path": "css/style.css", "lines": null, "code_preview": null, "optional": true }
+        ]
+      },
+      {
+        "tag": "modification",
+        "feature_desc": "Disable the Hire button while a hire request is processing.",
+        "file_paths": [
+          {
+            "path": "index.html",
+            "lines": "146-152",
+            "code_preview": [
+              "                  <div class=\"media-body\">",
+              "                    <h4 class=\"media-heading\">{{ w.name }} <span ng-show=\"w.state.hired > 0\" class=\"badge\">{{ w.state.hired | niceNumber }}</span></h4>",
+              "                    <p ng-show=\"w.state.hired > 0\">{{ w.description }}</p>",
+              "                    <p ng-show=\"w.state.hired > 0\" class=\"small\">Produce <strong>{{ w.state.rate | niceNumber }}</strong> data per second.</p>",
+              "                    <button class=\"btn btn-primary\" ng-disabled=\"!hrc.isAvailable(w)\" ng-click=\"hrc.hire(w)\"><i class=\"fa fa-user\"></i> <small>{{ w.state.cost | currency }}</small></button>",
+              "                  </div>"
+            ]
+          },
+          { "path": "js/app.js", "lines": null, "code_preview": null, "optional": true }
+        ]
+      },
+      {
+        "tag": "modification",
+        "feature_desc": "Show total hired count badge in HR header.",
+        "file_paths": [
+          {
+            "path": "index.html",
+            "lines": "140-150",
+            "code_preview": [
+              "            </h4>",
+              "          </div>",
+              "          <div class=\"panel-body scrollable large\" id=\"hrLarge\">",
+              "            <div id=\"hrContent\" ng-controller=\"HRController as hrc\">",
+              "              <ul class=\"media-list\" ng-cloak>",
+              "                <li class=\"media\" ng-repeat=\"w in hrc.workers\" ng-show=\"hrc.isVisible(w)\">"
+            ]
+          },
+          { "path": "js/app.js", "lines": null, "code_preview": null, "optional": true }
+        ]
+      }
+    ]
+  },
+  {
+    "superfeature": "Achievements",
+    "features": [
+      {
+        "tag": "modification",
+        "feature_desc": "Show a completion progress bar in achievements area.",
+        "file_paths": [
+          {
+            "path": "index.html",
+            "lines": "253-257",
+            "code_preview": [
+              "    </div>",
+              "",
+              "    <div id=\"achievements-container\" class=\"col-xs-6 col-sm-3\"></div>",
+              "    <div id=\"messages-container\" class=\"col-xs-6 col-sm-3\"></div>",
+              ""
+            ]
+          },
+          { "path": "css/style.css", "lines": null, "code_preview": null, "optional": true },
+          { "path": "js/app.js", "lines": null, "code_preview": null, "optional": true }
+        ]
+      },
+      {
+        "tag": "addition",
+        "feature_desc": "Add new achievement 'Hire 10 Physicists'.",
+        "file_paths": [
+          { "path": "json/achievements.json", "lines": null, "code_preview": null },
+          { "path": "js/app.js", "lines": null, "code_preview": null, "optional": true }
+        ]
+      },
+      {
+        "tag": "addition",
+        "feature_desc": "Add a 'share' icon next to unlocked achievements.",
+        "file_paths": [
+          {
+            "path": "index.html",
+            "lines": "234-257",
+            "code_preview": [
+              "      </div>",
+              "    </div>",
+              "",
+              "    <div class=\"modal fade\" id=\"stats-modal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"stats-label\" aria-hidden=\"true\" ng-controller=\"StatsController\">",
+              "      <div class=\"modal-dialog\">",
+              "        <div class=\"modal-content\">"
+            ]
+          },
+          { "path": "css/style.css", "lines": null, "code_preview": null, "optional": true },
+          { "path": "js/ui.js", "lines": null, "code_preview": null, "optional": true }
+        ]
+      },
+      {
+        "tag": "modification",
+        "feature_desc": "Sort achievements by completion status, completed last.",
+        "file_paths": [
+          {
+            "path": "index.html",
+            "lines": "234-257",
+            "code_preview": [
+              "      </div>",
+              "    </div>",
+              "",
+              "    <div class=\"modal fade\" id=\"stats-modal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"stats-label\" aria-hidden=\"true\" ng-controller=\"StatsController\">",
+              "      <div class=\"modal-dialog\">",
+              "        <div class=\"modal-content\">"
+            ]
+          },
+          { "path": "js/app.js", "lines": null, "code_preview": null, "optional": true }
+        ]
+      },
+      {
+        "tag": "modification",
+        "feature_desc": "Add 'Hide completed' toggle in achievements panel.",
+        "file_paths": [
+          {
+            "path": "index.html",
+            "lines": "234-244",
+            "code_preview": [
+              "      </div>",
+              "    </div>",
+              "",
+              "    <div class=\"modal fade\" id=\"stats-modal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"stats-label\" aria-hidden=\"true\" ng-controller=\"StatsController\">",
+              "      <div class=\"modal-dialog\">",
+              "        <div class=\"modal-content\">"
+            ]
+          },
+          { "path": "js/app.js", "lines": null, "code_preview": null, "optional": true }
+        ]
+      }
+    ]
+  },
+  {
+    "superfeature": "Resources",
+    "features": [
+      {
+        "tag": "modification",
+        "feature_desc": "Add 'Energy' resource next to Data, Reputation, Funding.",
+        "file_paths": [
+          {
+            "path": "index.html",
+            "lines": "114-130",
+            "code_preview": [
+              "        </div>",
+              "        <button id=\"detector-info\" class=\"btn btn-info\" ng-click=\"lc.showDetectorInfo()\"><i class=\"fa fa-info\"></i></button>",
+              "        <div class=\"row status\" ng-cloak>",
+              "          <div class=\"col-xs-4 text-center col-no-padding-xs\">",
+              "            <strong>Data</strong><br>",
+              "            {{ lc.lab.state.data | niceNumber }}"
+            ]
+          },
+          { "path": "js/game.js", "lines": null, "code_preview": null, "optional": true }
+        ]
+      },
+      {
+        "tag": "addition",
+        "feature_desc": "Add tooltips explaining how each resource changes.",
+        "file_paths": [
+          {
+            "path": "index.html",
+            "lines": "114-126",
+            "code_preview": [
+              "        </div>",
+              "        <button id=\"detector-info\" class=\"btn btn-info\" ng-click=\"lc.showDetectorInfo()\"><i class=\"fa fa-info\"></i></button>",
+              "        <div class=\"row status\" ng-cloak>",
+              "          <div class=\"col-xs-4 text-center col-no-padding-xs\">",
+              "            <strong>Data</strong><br>",
+              "            {{ lc.lab.state.data | niceNumber }}"
+            ]
+          },
+          { "path": "js/ui.js", "lines": null, "code_preview": null, "optional": true },
+          { "path": "css/style.css", "lines": null, "code_preview": null, "optional": true }
+        ]
+      },
+      {
+        "tag": "modification",
+        "feature_desc": "Format Funding using compact notation (e.g., $1.2k).",
+        "file_paths": [
+          { "path": "js/app.js", "lines": "26-30", "code_preview": [] },
+          { "path": "js/helpers.js", "lines": "22-45", "code_preview": [] , "optional": true}
+        ]
+      },
+      {
+        "tag": "modification",
+        "feature_desc": "Add thousand separators to Reputation and Data in the header.",
+        "file_paths": [
+          { "path": "js/helpers.js", "lines": "22-45", "code_preview": [] }
+        ]
+      }
+    ]
+  },
+  {
+    "superfeature": "Research",
+    "features": [
+      {
+        "tag": "modification",
+        "feature_desc": "Show spinner and disable research buttons while purchasing.",
+        "file_paths": [
+          {
+            "path": "index.html",
+            "lines": "87-95",
+            "code_preview": [
+              "                    <h4 class=\"media-heading\">{{ r.state.level > 0 ? r.name : '?????' }} <span ng-show=\"r.state.level > 0\" class=\"badge\">Level {{ r.state.level }}</span></h4>",
+              "                    <p ng-show=\"r.state.level > 0\">{{ r.description }}</p>",
+              "                    <p ng-show=\"r.state.level > 0\" class=\"small\">Research yields <strong>{{ r.state.reputation | niceNumber }}</strong> reputation.</p>",
+              "                    <div class=\"btn-group\">",
+              "                      <button class=\"btn btn-primary\" ng-disabled=\"!rc.isAvailable(r)\" ng-click=\"rc.doResearch(r)\"><i class=\"fa fa-cogs\"></i> <small>{{ r.state.cost | niceNumber }} data</small></button>",
+              "                    <button class=\"btn btn-info {{ r.state.interesting ? 'blink' : '' }}\" ng-show=\"r.state.level > 0\" ng-click=\"rc.showInfo(r)\"><i class=\"fa {{ r.state.interesting ? 'fa-exclamation' : 'fa-info' }}\"></i></button>"
+            ]
+          },
+          { "path": "js/app.js", "lines": null, "code_preview": [], "optional": true },
+          { "path": "css/style.css", "lines": null, "code_preview": null, "optional": true }
+        ]
+      },
+      {
+        "tag": "addition",
+        "feature_desc": "Add an info popover describing each research effect.",
+        "file_paths": [
+          {
+            "path": "index.html",
+            "lines": "88-96",
+            "code_preview": [
+              "                    <p ng-show=\"r.state.level > 0\">{{ r.description }}</p>",
+              "                    <p ng-show=\"r.state.level > 0\" class=\"small\">Research yields <strong>{{ r.state.reputation | niceNumber }}</strong> reputation.</p>",
+              "                    <div class=\"btn-group\">",
+              "                      <button class=\"btn btn-primary\" ng-disabled=\"!rc.isAvailable(r)\" ng-click=\"rc.doResearch(r)\"><i class=\"fa fa-cogs\"></i> <small>{{ r.state.cost | niceNumber }} data</small></button>",
+              "                    <button class=\"btn btn-info {{ r.state.interesting ? 'blink' : '' }}\" ng-show=\"r.state.level > 0\" ng-click=\"rc.showInfo(r)\"><i class=\"fa {{ r.state.interesting ? 'fa-exclamation' : 'fa-info' }}\"></i></button>",
+              "                  </div>"
+            ]
+          },
+          { "path": "js/ui.js", "lines": "any", "code_preview": [], "optional": true }
+        ]
+      },
+      {
+        "tag": "addition",
+        "feature_desc": "Add research 'Quantum Computing' that speeds up data generation.",
+        "file_paths": [
+          { "path": "json/research.json", "lines": null, "code_preview": null },
+          { "path": "js/app.js", "lines": null, "code_preview": [], "optional": true }
+        ]
+      },
+      {
+        "tag": "modification",
+        "feature_desc": "Add a filter toggle 'Affordable only' above the Research list.",
+        "file_paths": [
+          {
+            "path": "index.html",
+            "lines": "84-96",
+            "code_preview": [
+              "                  <img ng-show=\"r.state.level > 0\" class=\"research-icon media-object\" ng-src=\"{{ r.image }}\" alt=\"\">",
+              "                  <img ng-hide=\"r.state.level > 0\" class=\"research-icon media-object\" src=\"assets/icons/png/unknown.png\" alt=\"\">",
+              "                  <div class=\"media-body\">",
+              "                    <h4 class=\"media-heading\">{{ r.state.level > 0 ? r.name : '?????' }} <span ng-show=\"r.state.level > 0\" class=\"badge\">Level {{ r.state.level }}</span></h4>",
+              "                    <p ng-show=\"r.state.level > 0\">{{ r.description }}</p>",
+              "                    <p ng-show=\"r.state.level > 0\" class=\"small\">Research yields <strong>{{ r.state.reputation | niceNumber }}</strong> reputation.</p>"
+            ]
+          },
+          {
+            "path": "js/app.js",
+            "lines": "77-90",
+            "code_preview": [
+              "  app.controller('ResearchController', ['$compile', function($compile) {",
+              "    this.research = research;",
+              "    this.isVisible = function(item) {",
+              "      return item.isVisible(lab);",
+              "    };",
+              "    this.isAvailable = function(item) {",
+              "      return item.isAvailable(lab);",
+              "    };"
+            ]
+          },
+          { "path": "css/style.css", "lines": null, "code_preview": null, "optional": true }
+        ]
+      },
+      {
+        "tag": "addition",
+        "feature_desc": "Add a small 'i' icon next to each Research to open a detail tooltip.",
+        "file_paths": [
+          {
+            "path": "index.html",
+            "lines": "88-96",
+            "code_preview": [
+              "                    <p ng-show=\"r.state.level > 0\">{{ r.description }}</p>",
+              "                    <p ng-show=\"r.state.level > 0\" class=\"small\">Research yields <strong>{{ r.state.reputation | niceNumber }}</strong> reputation.</p>",
+              "                    <div class=\"btn-group\">",
+              "                      <button class=\"btn btn-primary\" ng-disabled=\"!rc.isAvailable(r)\" ng-click=\"rc.doResearch(r)\"><i class=\"fa fa-cogs\"></i> <small>{{ r.state.cost | niceNumber }} data</small></button>",
+              "                    <button class=\"btn btn-info {{ r.state.interesting ? 'blink' : '' }}\" ng-show=\"r.state.level > 0\" ng-click=\"rc.showInfo(r)\"><i class=\"fa {{ r.state.interesting ? 'fa-exclamation' : 'fa-info' }}\"></i></button>",
+              "                  </div>"
+            ]
+          },
+          { "path": "js/ui.js", "lines": "any", "code_preview": [], "optional": true }
+        ]
+      }
+    ]
+  },
+  {
+    "superfeature": "Upgrades",
+    "features": [
+      {
+        "tag": "modification",
+        "feature_desc": "Show unmet research requirements under each upgrade.",
+        "file_paths": [
+          {
+            "path": "index.html",
+            "lines": "171-179",
+            "code_preview": [
+              "                  <div class=\"media-body\">",
+              "                    <h4 class=\"media-heading\"><i class=\"fa {{ u.icon }} media-object\"></i> {{ u.name }}</h4>",
+              "                    <p>{{ u.description }}</p>",
+              "                    <p class=\"small\">{{ u.effect }}</p>",
+              "                    <button class=\"btn btn-primary\" ng-disabled=\"!uc.isAvailable(u)\" ng-click=\"uc.upgrade(u)\"><i class=\"fa fa-money\"></i> <small>{{ u.cost | currency }}</small></button>",
+              "                  </div>"
+            ]
+          },
+          { "path": "js/app.js", "lines": "any", "code_preview": [], "optional": true }
+        ]
+      },
+      {
+        "tag": "modification",
+        "feature_desc": "Disable upgrade purchase button when requirements are unmet.",
+        "file_paths": [
+          {
+            "path": "index.html",
+            "lines": "171-179",
+            "code_preview": [
+              "                  <div class=\"media-body\">",
+              "                    <h4 class=\"media-heading\"><i class=\"fa {{ u.icon }} media-object\"></i> {{ u.name }}</h4>",
+              "                    <p>{{ u.description }}</p>",
+              "                    <p class=\"small\">{{ u.effect }}</p>",
+              "                    <button class=\"btn btn-primary\" ng-disabled=\"!uc.isAvailable(u)\" ng-click=\"uc.upgrade(u)\"><i class=\"fa fa-money\"></i> <small>{{ u.cost | currency }}</small></button>",
+              "                  </div>"
+            ]
+          }
+        ]
+      },
+      {
+        "tag": "addition",
+        "feature_desc": "Add upgrade 'Super Microscope' that doubles click efficiency.",
+        "file_paths": [
+          { "path": "json/upgrades.json", "lines": null, "code_preview": null },
+          { "path": "js/app.js", "lines": null, "code_preview": [], "optional": true }
+        ]
+      },
+      {
+        "tag": "modification",
+        "feature_desc": "Group upgrades by category with collapsible headers.",
+        "file_paths": [
+          {
+            "path": "index.html",
+            "lines": "172-178",
+            "code_preview": [
+              "                    <h4 class=\"media-heading\"><i class=\"fa {{ u.icon }} media-object\"></i> {{ u.name }}</h4>",
+              "                    <p>{{ u.description }}</p>",
+              "                    <p class=\"small\">{{ u.effect }}</p>",
+              "                    <button class=\"btn btn-primary\" ng-disabled=\"!uc.isAvailable(u)\" ng-click=\"uc.upgrade(u)\"><i class=\"fa fa-money\"></i> <small>{{ u.cost | currency }}</small></button>",
+              "                  </div>",
+              "                </li>"
+            ]
+          },
+          { "path": "json/upgrades.json", "lines": "any", "code_preview": [], "optional": true },
+          { "path": "css/style.css", "lines": null, "code_preview": null, "optional": true }
+        ]
+      },
+      {
+        "tag": "modification",
+        "feature_desc": "Show a lock icon on upgrades that require prior research.",
+        "file_paths": [
+          {
+            "path": "index.html",
+            "lines": "172-178",
+            "code_preview": [
+              "                    <h4 class=\"media-heading\"><i class=\"fa {{ u.icon }} media-object\"></i> {{ u.name }}</h4>",
+              "                    <p>{{ u.description }}</p>",
+              "                    <p class=\"small\">{{ u.effect }}</p>",
+              "                    <button class=\"btn btn-primary\" ng-disabled=\"!uc.isAvailable(u)\" ng-click=\"uc.upgrade(u)\"><i class=\"fa fa-money\"></i> <small>{{ u.cost | currency }}</small></button>",
+              "                  </div>",
+              "                </li>"
+            ]
+          },
+          { "path": "css/style.css", "lines": null, "code_preview": null, "optional": true }
+        ]
+      },
+      {
+        "tag": "modification",
+        "feature_desc": "Show delta (+%) preview when hovering an upgrade.",
+        "file_paths": [
+          {
+            "path": "index.html",
+            "lines": "172-178",
+            "code_preview": [
+              "                    <h4 class=\"media-heading\"><i class=\"fa {{ u.icon }} media-object\"></i> {{ u.name }}</h4>",
+              "                    <p>{{ u.description }}</p>",
+              "                    <p class=\"small\">{{ u.effect }}</p>",
+              "                    <button class=\"btn btn-primary\" ng-disabled=\"!uc.isAvailable(u)\" ng-click=\"uc.upgrade(u)\"><i class=\"fa fa-money\"></i> <small>{{ u.cost | currency }}</small></button>",
+              "                  </div>",
+              "                </li>"
+            ]
+          },
+          { "path": "js/ui.js", "lines": null, "code_preview": null, "optional": true },
+          { "path": "css/style.css", "lines": null, "code_preview": null, "optional": true }
+        ]
+      }
+    ]
+  },
+  {
+    "superfeature": "Game Loop & UI",
+    "features": [
+      {
+        "tag": "addition",
+        "feature_desc": "Add a Pause/Resume button in the navbar.",
+        "file_paths": [
+          {
+            "path": "index.html",
+            "lines": "40-60",
+            "code_preview": [
+              "          </button>",
+              "          <a class=\"navbar-brand pc-icon\" href=\"#\" data-toggle=\"modal\" data-target=\"#myModal\"> Particle Clicker</a>",
+              "        </div>",
+              "        <div class=\"collapse navbar-collapse\" id=\"navbar-collapse\">",
+              "          <ul class=\"nav navbar-nav navbar-left\">",
+              "            <li><a href=\"#\" data-toggle=\"modal\" data-target=\"#achievements-modal\"><i class=\"fa fa-trophy\"></i> Achievements</a></li>",
+              "            <li><a href=\"#\" data-toggle=\"modal\" data-target=\"#stats-modal\"><i class=\"fa fa-bar-chart\"></i> Statistics</a></li>",
+              "            <li class=\"dropdown\" ng-controller=\"SaveController\">"
+            ]
+          },
+          {
+            "path": "js/app.js",
+            "lines": "74-90",
+            "code_preview": [
+              "    }, 1000);",
+              "  }]);",
+              "",
+              "  app.controller('ResearchController', ['$compile', function($compile) {",
+              "    this.research = research;",
+              "    this.isVisible = function(item) {",
+              "      return item.isVisible(lab);",
+              "    };"
+            ]
+          },
+          { "path": "js/game.js", "lines": null, "code_preview": null, "optional": true }
+        ]
+      },
+      {
+        "tag": "modification",
+        "feature_desc": "Flash detector canvas briefly when clicked.",
+        "file_paths": [
+          {
+            "path": "index.html",
+            "lines": "107-113",
+            "code_preview": [
+              "            <canvas id=\"detector-core\" width=\"400\" height=\"400\">",
+              "              Your detector. Click on it to generate events.",
+              "            </canvas>",
+              "            <canvas ng-click=\"dc.click()\" id=\"detector-events\" width=\"400\" height=\"400\" class=\"prevent-select\">",
+              "              Your detector. Click on it to generate events.",
+              "            </canvas>"
+            ]
+          },
+          { "path": "js/detector.js", "lines": "any", "code_preview": [] },
+          { "path": "css/style.css", "lines": null, "code_preview": null, "optional": true }
+        ]
+      },
+      {
+        "tag": "addition",
+        "feature_desc": "Add a 'Copy stats to clipboard' button in Statistics modal.",
+        "file_paths": [
+          {
+            "path": "index.html",
+            "lines": "240-252",
+            "code_preview": [
+              "          <div class=\"modal-header\">",
+              "            <button type=\"button\" class=\"close\" data-dismiss=\"modal\"><span aria-hidden=\"true\">&times;</span><span class=\"sr-only\">Close</span></button>",
+              "            <h4 class=\"modal-title\" id=\"stats-label\"><i class=\"fa fa-bar-chart\"></i> Statistics</h4>",
+              "          </div>",
+              "          <div class=\"modal-body\">",
+              "            <ul class=\"list-group\">"
+            ]
+          },
+          { "path": "js/app.js", "lines": "158-160", "code_preview": [ "  app.controller('StatsController', function($scope) {", "    $scope.lab = lab;", "  });" ] },
+          { "path": "js/ui.js", "lines": "any", "code_preview": [], "optional": true },
+          { "path": "css/style.css", "lines": null, "code_preview": null, "optional": true }
+        ]
+      },
+      {
+        "tag": "modification",
+        "feature_desc": "Show an unsaved-changes asterisk next to 'Save Now' when autosave is off.",
+        "file_paths": [
+          {
+            "path": "index.html",
+            "lines": "47-55",
+            "code_preview": [
+              "            <li class=\"dropdown\" ng-controller=\"SaveController\">",
+              "            <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-floppy-o\"></i> Saved: <span ng-cloak>{{ lastSaved | date : 'H:mm' }}</span> <span class=\"caret\"></span></a>",
+              "              <ul class=\"dropdown-menu\" role=\"menu\">",
+              "                <li><a href=\"#\" ng-click=\"saveNow()\"><i class=\"fa fa-save\"></i> Save now</a></li>",
+              "                <li class=\"divider\"></li>",
+              "                <li><a href=\"#\" ng-click=\"restart()\"><i class=\"fa fa-refresh\"></i> Restart</a></li>"
+            ]
+          },
+          { "path": "js/storage.js", "lines": null, "code_preview": null, "optional": true }
+        ]
+      },
+      {
+        "tag": "addition",
+        "feature_desc": "Add a 'Copy stats' button to the Statistics modal.",
+        "file_paths": [
+          {
+            "path": "index.html",
+            "lines": "246-257",
+            "code_preview": [
+              "              <li class=\"list-group-item\"><i class=\"fa fa-location-arrow\"></i> : <strong>{{ lab.state.clicks | niceNumber }}</strong></li>",
+              "              <li class=\"list-group-item\"><i class=\"fa fa-database\"></i> : <strong>{{ lab.state.dataSpent | niceNumber }}</strong> used / <strong>{{ lab.state.dataCollected | niceNumber }}</strong> collected</li>",
+              "              <li class=\"list-group-item\"><i class=\"fa fa-money\"></i> : <strong>{{ lab.state.moneySpent | niceNumber }}</strong> spent / <strong>{{ lab.state.moneyCollected | niceNumber }}</strong> gathered</li>",
+              "            </ul>",
+              "          </div>",
+              "        </div>"
+            ]
+          },
+          { "path": "js/app.js", "lines": null, "code_preview": [], "optional": true }
+        ]
+      },
+      {
+        "tag": "modification",
+        "feature_desc": "Debounce window resize handler to improve performance.",
+        "file_paths": [
+          {
+            "path": "js/app.js",
+            "lines": "1-20",
+            "code_preview": [
+              "'use strict';",
+              "(function() {",
+              "  Helpers.validateSaveVersion();",
+              "",
+              "  var game = new Game.Game();",
+              "  game.load();"
+            ]
+          },
+          { "path": "js/ui.js", "lines": "any", "code_preview": [] }
+        ]
+      }
+    ]
+  },
+  {
+    "superfeature": "Detector",
+    "features": [
+      {
+        "tag": "modification",
+        "feature_desc": "Make detector info open a collapsible side panel.",
+        "file_paths": [
+          {
+            "path": "index.html",
+            "lines": "113-117",
+            "code_preview": [
+              "          </div>",
+              "        </div>",
+              "        <button id=\"detector-info\" class=\"btn btn-info\" ng-click=\"lc.showDetectorInfo()\"><i class=\"fa fa-info\"></i></button>",
+              "        <div class=\"row status\" ng-cloak>",
+              "          <div class=\"col-xs-4 text-center col-no-padding-xs\">"
+            ]
+          },
+          { "path": "css/style.css", "lines": null, "code_preview": null, "optional": true },
+          { "path": "js/ui.js", "lines": null, "code_preview": null, "optional": true }
+        ]
+      },
+      {
+        "tag": "modification",
+        "feature_desc": "Show richer hover tooltip for detector components.",
+        "file_paths": [
+          {
+            "path": "js/detector.js",
+            "lines": "159-165",
+            "code_preview": [
+              "                ctx.lineTo(cx + (detector.radius.mucal + k * detector.radius.mucalLight + k * detector.radius.mucalDark) * Math.cos(Math.PI * i * muSplit) * detector.ratio, cy + (detector.radius.mucal + k * detector.radius.mucalLight + k * detector.radius.mucalDark) * Math.sin(Math.PI * i * muSplit) * detector.ratio);",
+              "            }",
+              "            ctx.stroke();",
+              "            ctx.fill();",
+              "",
+              "            ctx.beginPath();"
+            ]
+          },
+          { "path": "css/style.css", "lines": null, "code_preview": null, "optional": true },
+          { "path": "js/ui.js", "lines": null, "code_preview": null, "optional": true }
+        ]
+      },
+      {
+        "tag": "addition",
+        "feature_desc": "Add a keyboard shortcut 'I' to open Detector info.",
+        "file_paths": [
+          {
+            "path": "index.html",
+            "lines": "115-116",
+            "code_preview": [
+              "        <button id=\"detector-info\" class=\"btn btn-info\" ng-click=\"lc.showDetectorInfo()\"><i class=\"fa fa-info\"></i></button>",
+              "        <div class=\"row status\" ng-cloak>"
+            ],
+            "optional": true
+          },
+          { "path": "js/app.js", "lines": "any", "code_preview": [] }
+        ]
+      }
+    ]
+  },
+  {
+    "superfeature": "Histogram",
+    "features": [
+      {
+        "tag": "modification",
+        "feature_desc": "Compact histogram axis ticks (e.g., 1.2k).",
+        "file_paths": [
+          {
+            "path": "js/histogram.js",
+            "lines": "43-49",
+            "code_preview": [
+              "",
+              "    var bar = svg.selectAll(\".bar\")",
+              "        .data(data)",
+              "        .enter().append(\"svg:circle\")",
+              "        .attr(\"stroke\", \"black\")",
+              "        .attr(\"fill\", function(d, i) { return \"black\" })"
+            ]
+          }
+        ]
+      },
+      {
+        "tag": "addition",
+        "feature_desc": "Add a hover tooltip for histogram bars.",
+        "file_paths": [
+          {
+            "path": "js/histogram.js",
+            "lines": "89-95",
+            "code_preview": [
+              "",
+              "    svg.append(\"g\")",
+              "        .attr(\"class\", \"x axis\")",
+              "        .attr(\"transform\", \"translate(0,\" + (height ) + \")\")",
+              "        .call(xAxis);",
+              ""
+            ]
+          }
+        ]
+      },
+      {
+        "tag": "modification",
+        "feature_desc": "Add log scale option for histogram Y axis.",
+        "file_paths": [
+          {
+            "path": "js/histogram.js",
+            "lines": "1-20",
+            "code_preview": [
+              "",
+              "function draw_hist(ident, vals) {",
+              "",
+              "    // A formatter for counts.",
+              "    var formatCount = d3.format(\",0d\");",
+              ""
+            ]
+          }
+        ]
+      },
+      {
+        "tag": "addition",
+        "feature_desc": "Add a reset zoom button to histogram.",
+        "file_paths": [
+          {
+            "path": "js/histogram.js",
+            "lines": "60-80",
+            "code_preview": [
+              "        .attr(\"stroke\", \"black\")",
+              "        .attr(\"stroke-width\", 1)",
+              "",
+              "    svg.selectAll(\".bar\")",
+              "        .data(data)",
+              "        .enter().append(\"svg:line\")"
+            ]
+          },
+          { "path": "index.html", "lines": null, "code_preview": null, "optional": true }
+        ]
+      }
+    ]
+  },
+  {
+    "superfeature": "Storage & Persistence",
+    "features": [
+      {
+        "tag": "modification",
+        "feature_desc": "Show last-saved timestamp tooltip in Save menu.",
+        "file_paths": [
+          {
+            "path": "index.html",
+            "lines": "41-53",
+            "code_preview": [
+              "          <a class=\"navbar-brand pc-icon\" href=\"#\" data-toggle=\"modal\" data-target=\"#myModal\"> Particle Clicker</a>",
+              "        </div>",
+              "        <div class=\"collapse navbar-collapse\" id=\"navbar-collapse\">",
+              "          <ul class=\"nav navbar-nav navbar-left\">",
+              "            <li><a href=\"#\" data-toggle=\"modal\" data-target=\"#achievements-modal\"><i class=\"fa fa-trophy\"></i> Achievements</a></li>",
+              "            <li><a href=\"#\" data-toggle=\"modal\" data-target=\"#stats-modal\"><i class=\"fa fa-bar-chart\"></i> Statistics</a></li>"
+            ]
+          },
+          { "path": "js/storage.js", "lines": null, "code_preview": null, "optional": true }
+        ]
+      },
+      {
+        "tag": "modification",
+        "feature_desc": "Add 'Export Save' to download save as JSON.",
+        "file_paths": [
+          {
+            "path": "js/storage.js",
+            "lines": "13-19",
+            "code_preview": [
+              "                                return undefined;",
+              "                              }",
+              "                              return val;",
+              "                            }));",
+              "          },",
+              "      load : function(key) { return JSON.parse(_s.getItem(key)); },"
+            ]
+          },
+          { "path": "index.html", "lines": null, "code_preview": null, "optional": true }
+        ]
+      },
+      {
+        "tag": "modification",
+        "feature_desc": "Auto-save every 60 seconds with visual pulse near Save menu.",
+        "file_paths": [
+          {
+            "path": "js/storage.js",
+            "lines": "1-20",
+            "code_preview": [
+              "/** Allows to save objects to HTML5 local storage.",
+              " * However, it can only save properties, not functions.",
+              " */",
+              "var ObjectStorage = (function() {",
+              "  'use strict';",
+              "  try {"
+            ]
+          },
+          { "path": "css/style.css", "lines": null, "code_preview": null, "optional": true },
+          { "path": "index.html", "lines": null, "code_preview": null, "optional": true }
+        ]
+      }
+    ]
+  },
+  {
+    "superfeature": "Helpers",
+    "features": [
+      {
+        "tag": "modification",
+        "feature_desc": "Improve niceNumber formatting for millions/billions.",
+        "file_paths": [
+          {
+            "path": "js/helpers.js",
+            "lines": "42-48",
+            "code_preview": [
+              "      }",
+              "    }",
+              "    return number; ",
+              "  }",
+              "",
+              "  var formatTime = function (msec) {"
+            ]
+          }
+        ]
+      },
+      {
+        "tag": "modification",
+        "feature_desc": "Clamp function: handle NaN inputs gracefully.",
+        "file_paths": [
+          {
+            "path": "js/helpers.js",
+            "lines": "1-25",
+            "code_preview": [
+              "/** @module Helpers",
+              " * Define some useful helpers that are used throughout the game.",
+              " */",
+              "var Helpers = (function () {",
+              "  'use strict';",
+              "  /** Load a file (usually JSON)."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "superfeature": "Analytics",
+    "features": [
+      {
+        "tag": "modification",
+        "feature_desc": "Track 'Achievement Unlocked' event with achievement name.",
+        "file_paths": [
+          {
+            "path": "js/analytics.js",
+            "lines": "23-29",
+            "code_preview": [
+              "    ",
+              "    init: function()",
+              "    {",
+              "        if (typeof Helpers.analytics === 'undefined' || Helpers.analytics == '') {",
+              "            analytics.enabled = false;",
+              "            return;"
+            ]
+          }
+        ]
+      },
+      {
+        "tag": "modification",
+        "feature_desc": "Track 'Pause toggled' in analytics.",
+        "file_paths": [
+          {
+            "path": "js/analytics.js",
+            "lines": "48-54",
+            "code_preview": [
+              "        });",
+              "",
+              "        $('#infoBox').on('show.bs.modal', function (e) {",
+              "            analytics.sendScreen(analytics.screens.info);",
+              "        });",
+              "        $('#infoBox').on('hide.bs.modal', function (e) {"
+            ]
+          }
+        ]
+      },
+      {
+        "tag": "addition",
+        "feature_desc": "Track 'Research Purchased' with research id.",
+        "file_paths": [
+          {
+            "path": "js/analytics.js",
+            "lines": "1-12",
+            "code_preview": [
+              "var analytics =",
+              "{",
+              "    enabled: true,",
+              "",
+              "    screens:",
+              "    {"
+            ]
+          },
+          { "path": "js/app.js", "lines": "any", "code_preview": [] }
+        ]
+      }
+    ]
+  },
+  {
+    "superfeature": "Styles",
+    "features": [
+      {
+        "tag": "addition",
+        "feature_desc": "Add a .dark theme styles to swap colors.",
+        "file_paths": [
+          {
+            "path": "css/style.css",
+            "lines": "1-6",
+            "code_preview": [
+              "body {",
+              "  padding-top: 40px;",
+              "}",
+              "",
+              "* {",
+              "  border-radius: 0 !important;"
+            ]
+          }
+        ]
+      },
+      {
+        "tag": "modification",
+        "feature_desc": "Increase contrast for buttons for accessibility.",
+        "file_paths": [
+          {
+            "path": "css/style.css",
+            "lines": "146-152",
+            "code_preview": [
+              ".media-list-no-margin {",
+              "  margin-top: -15px;",
+              "}",
+              "",
+              ".col-no-padding {",
+              "  padding-right: 0;"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "superfeature": "UI Helpers",
+    "features": [
+      {
+        "tag": "modification",
+        "feature_desc": "Show a confirmation dialog before 'Restart'.",
+        "file_paths": [
+          {
+            "path": "index.html",
+            "lines": "48-56",
+            "code_preview": [
+              "            <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-floppy-o\"></i> Saved: <span ng-cloak>{{ lastSaved | date : 'H:mm' }}</span> <span class=\"caret\"></span></a>",
+              "              <ul class=\"dropdown-menu\" role=\"menu\">",
+              "                <li><a href=\"#\" ng-click=\"saveNow()\"><i class=\"fa fa-save\"></i> Save now</a></li>",
+              "                <li class=\"divider\"></li>",
+              "                <li><a href=\"#\" ng-click=\"restart()\"><i class=\"fa fa-refresh\"></i> Restart</a></li>",
+              "              </ul>"
+            ]
+          },
+          { "path": "js/ui.js", "lines": null, "code_preview": null, "optional": true }
+        ]
+      }
+    ]
+  }
+]
